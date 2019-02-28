@@ -1,0 +1,3 @@
+Inventory:
+-PL-11 missile
+-PL-12 missile

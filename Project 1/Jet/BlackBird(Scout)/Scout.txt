@@ -1,0 +1,4 @@
+Inventory:
+-flares
+-optical/infrared imagery systems
+-side-looking airborne radar 
