@@ -23,11 +23,52 @@ namespace Project_PRG282
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
+        { 
+            //Creating obstacle menu
+            pnlTitan.Enabled = false;
+            ControlExtension.Draggable(pnlTitan, true);
+
+            //Hiding zones (Obstacle zone, running strip)
             pnlAirStripStart.BorderStyle = BorderStyle.None;
             pnlAirStripEnd.BorderStyle = BorderStyle.None;
             pnlAttackStrip.BorderStyle = BorderStyle.None;
             pnlOnstacleZone.BorderStyle = BorderStyle.None;
+            pnlObstacleMenu.BorderStyle = BorderStyle.None;
+            pnlTitan.BorderStyle = BorderStyle.None;
+        }
+
+        //Displaying Obstacle Menu
+        private void addObstaclesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pnlTitan.Enabled = true;
+            pnlTitan.BackColor = Color.Black;
+        }
+
+        //Hiding Obstacle Menu
+        private void removeAllObstaclesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool check = true;
+            pnlObstacleMenu.BackColor = Color.Transparent;
+            pnlOnstacleZone.BackColor = Color.Transparent;
+
+            //Keeping dragabels
+            if (pnlTitan.Location.X > pnlObstacleMenu.Location.X && pnlTitan.Location.X + pnlTitan.Width < pnlObstacleMenu.Location.X + pnlObstacleMenu.Width)
+            {
+                pnlTitan.Enabled = false;
+                check = true;
+            }
+            if (pnlTitan.Location.X > pnlOnstacleZone.Location.X && pnlTitan.Location.X + pnlTitan.Width < pnlOnstacleZone.Location.X + pnlOnstacleZone.Width)
+            { 
+                check = false;
+            }
+            else
+            {
+                MessageBox.Show("Obstacles can only be place in the red zone");
+            }
+            if (check)
+            {
+                pnlTitan.BackColor = Color.Transparent;
+            }
         }
     }
 }
