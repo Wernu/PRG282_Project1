@@ -21,5 +21,13 @@ namespace Project_PRG282
         {
             Environment.Exit(0);
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            pnlAirStripStart.BorderStyle = BorderStyle.None;
+            pnlAirStripEnd.BorderStyle = BorderStyle.None;
+            pnlAttackStrip.BorderStyle = BorderStyle.None;
+            pnlOnstacleZone.BorderStyle = BorderStyle.None;
+        }
     }
 }
