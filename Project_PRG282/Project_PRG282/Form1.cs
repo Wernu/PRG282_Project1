@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
 
 namespace Project_PRG282
 {
@@ -34,15 +35,18 @@ namespace Project_PRG282
             pnlAttackStart.BorderStyle = BorderStyle.None;
             pnlAttackEnd.BorderStyle = BorderStyle.None;
             pbObstacleZone.BorderStyle = BorderStyle.None;
-            pbObstacleMenu.BorderStyle = BorderStyle.None;
-            lblMenuHeader.Visible = false;
             pnlTitan.BorderStyle = BorderStyle.None;
 
             //Moving the jet to the start of the airstrip
 
             pnlAirStripStart.Hide();           
-            pnlJet.Location = new Point(pnlAirStripStart.Location.X, pnlAirStripStart.Location.Y);
+            picJet.Location = new Point(pnlAirStripStart.Location.X, pnlAirStripStart.Location.Y);
+            picJet.BorderStyle = BorderStyle.None;
+            //Rotating the jet
 
+            Image imgJet = picJet.BackgroundImage;
+            imgJet.RotateFlip(RotateFlipType.Rotate90FlipNone);
+            picJet.BackgroundImage = imgJet;
         }
 
         //Displaying Obstacle Menu
@@ -50,8 +54,6 @@ namespace Project_PRG282
         {
             pnlTitan.Enabled = true;
             pnlTitan.BackColor = Color.Black;
-            lblMenuHeader.Visible = true;
-            pbObstacleMenu.BackColor = Color.DarkCyan;
             pbObstacleZone.BackColor = Color.Red;
         }
 
@@ -60,8 +62,6 @@ namespace Project_PRG282
         {
             bool check = true;
             pbObstacleZone.BackColor = Color.Transparent;
-            pbObstacleMenu.BackColor = Color.Transparent;
-            lblMenuHeader.Visible = false;
 
             //Keeping dragabels
             if (pnlTitan.Location.X > pbObstacleZone.Location.X && pnlTitan.Location.X + pnlTitan.Width < pbObstacleZone.Location.X + pbObstacleZone.Width)

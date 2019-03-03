@@ -36,15 +36,16 @@
             this.startToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pnlJet = new System.Windows.Forms.Panel();
             this.pnlAirStripEnd = new System.Windows.Forms.Panel();
             this.pnlAirStripStart = new System.Windows.Forms.Panel();
             this.pnlTitan = new System.Windows.Forms.Panel();
             this.pbObstacleZone = new System.Windows.Forms.PictureBox();
             this.pnlAttackStart = new System.Windows.Forms.Panel();
             this.pnlAttackEnd = new System.Windows.Forms.Panel();
+            this.picJet = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbObstacleZone)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picJet)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -104,23 +105,12 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // pnlJet
-            // 
-            this.pnlJet.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.pnlJet.BackColor = System.Drawing.Color.Transparent;
-            this.pnlJet.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlJet.BackgroundImage")));
-            this.pnlJet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlJet.Location = new System.Drawing.Point(104, 207);
-            this.pnlJet.Name = "pnlJet";
-            this.pnlJet.Size = new System.Drawing.Size(32, 32);
-            this.pnlJet.TabIndex = 1;
-            // 
             // pnlAirStripEnd
             // 
             this.pnlAirStripEnd.BackColor = System.Drawing.Color.Transparent;
             this.pnlAirStripEnd.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlAirStripEnd.Location = new System.Drawing.Point(214, 220);
-            this.pnlAirStripEnd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlAirStripEnd.Margin = new System.Windows.Forms.Padding(2);
             this.pnlAirStripEnd.Name = "pnlAirStripEnd";
             this.pnlAirStripEnd.Size = new System.Drawing.Size(18, 19);
             this.pnlAirStripEnd.TabIndex = 1;
@@ -130,7 +120,7 @@
             this.pnlAirStripStart.BackColor = System.Drawing.Color.Transparent;
             this.pnlAirStripStart.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlAirStripStart.Location = new System.Drawing.Point(69, 213);
-            this.pnlAirStripStart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlAirStripStart.Margin = new System.Windows.Forms.Padding(2);
             this.pnlAirStripStart.Name = "pnlAirStripStart";
             this.pnlAirStripStart.Size = new System.Drawing.Size(18, 19);
             this.pnlAirStripStart.TabIndex = 2;
@@ -140,7 +130,7 @@
             this.pnlTitan.BackColor = System.Drawing.Color.Transparent;
             this.pnlTitan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlTitan.Location = new System.Drawing.Point(28, 47);
-            this.pnlTitan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlTitan.Margin = new System.Windows.Forms.Padding(2);
             this.pnlTitan.Name = "pnlTitan";
             this.pnlTitan.Size = new System.Drawing.Size(24, 27);
             this.pnlTitan.TabIndex = 4;
@@ -150,7 +140,7 @@
             this.pbObstacleZone.BackColor = System.Drawing.Color.Transparent;
             this.pbObstacleZone.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pbObstacleZone.Location = new System.Drawing.Point(345, 25);
-            this.pbObstacleZone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbObstacleZone.Margin = new System.Windows.Forms.Padding(2);
             this.pbObstacleZone.Name = "pbObstacleZone";
             this.pbObstacleZone.Size = new System.Drawing.Size(328, 424);
             this.pbObstacleZone.TabIndex = 0;
@@ -174,6 +164,18 @@
             this.pnlAttackEnd.Size = new System.Drawing.Size(18, 19);
             this.pnlAttackEnd.TabIndex = 7;
             // 
+            // picJet
+            // 
+            this.picJet.BackColor = System.Drawing.Color.Transparent;
+            this.picJet.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picJet.BackgroundImage")));
+            this.picJet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picJet.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.picJet.Location = new System.Drawing.Point(142, 179);
+            this.picJet.Name = "picJet";
+            this.picJet.Size = new System.Drawing.Size(34, 34);
+            this.picJet.TabIndex = 8;
+            this.picJet.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -181,17 +183,17 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(886, 449);
+            this.Controls.Add(this.picJet);
             this.Controls.Add(this.pnlAttackEnd);
             this.Controls.Add(this.pnlAttackStart);
             this.Controls.Add(this.pnlAirStripStart);
-            this.Controls.Add(this.pnlJet);
             this.Controls.Add(this.pnlTitan);
             this.Controls.Add(this.pnlAirStripEnd);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pbObstacleZone);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -200,6 +202,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbObstacleZone)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picJet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,13 +217,13 @@
         private System.Windows.Forms.ToolStripMenuItem startToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stopToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.Panel pnlJet;
         private System.Windows.Forms.Panel pnlAirStripEnd;
         private System.Windows.Forms.Panel pnlAirStripStart;
         private System.Windows.Forms.Panel pnlTitan;
         private System.Windows.Forms.PictureBox pbObstacleZone;
         private System.Windows.Forms.Panel pnlAttackStart;
         private System.Windows.Forms.Panel pnlAttackEnd;
+        private System.Windows.Forms.PictureBox picJet;
     }
 }
 
