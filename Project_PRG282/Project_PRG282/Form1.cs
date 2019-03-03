@@ -24,6 +24,7 @@ namespace Project_PRG282
             Environment.Exit(0);
         }
 
+
         private void Form1_Load(object sender, EventArgs e)
         { 
             //Creating obstacle menu
@@ -32,11 +33,10 @@ namespace Project_PRG282
 
             //Hiding zones (Obstacle zone, running strip)
             pnlAirStripStart.BorderStyle = BorderStyle.None;
-            pnlAirStripEnd.BorderStyle = BorderStyle.None;
-            pnlAttackStart.BorderStyle = BorderStyle.None;
-            pnlAttackEnd.BorderStyle = BorderStyle.None;
             pbObstacleZone.BorderStyle = BorderStyle.None;
+            pnlEnemyBase.BorderStyle = BorderStyle.None;
             pnlTitan.BorderStyle = BorderStyle.None;
+            pnlReturnBase.BorderStyle = BorderStyle.None;
 
             //Moving the jet to the start of the airstrip
 
@@ -81,35 +81,85 @@ namespace Project_PRG282
 
         private void startToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Thread thMoveEnemy = new Thread(MovingToEnemy);
-            thMoveEnemy.Start();
+            timeMove.Start();
+            timeMove.Interval = 1;
+            timeMove.Tick += Move;
 
         }
 
-        public void MovingToEnemy()
+        public void Move (object sender, EventArgs e)
         {
 
-            if (picJet.InvokeRequired)
+
+            Rectangle recJet = new Rectangle(picJet.Location.X, picJet.Location.Y, picJet.Width, picJet.Height);
+            Rectangle recEBase = new Rectangle(pnlEnemyBase.Location.X, pnlEnemyBase.Location.Y, pnlEnemyBase.Width, pnlEnemyBase.Height);
+
+            bool isCollision = recJet.IntersectsWith(recEBase);
+
+            
+
+            if (isCollision)
             {
-                this.Invoke(new MethodInvoker(delegate
-                {
-                    for (int i = pnlAirStripStart.Location.X; i < pnlAttackStart.Location.X; i++)
-                    {
-                        for (int k = pnlAirStripStart.Location.Y; k > pnlAttackStart.Location.Y; k++)
-                        {
-                            picJet.Location = new Point(i,k);
-                            Thread.Sleep(30);
-                        }
-                    }
-                    
-
-                }));
-
-
+               
+                timeMove.Stop();
+                ReturnBase();
+            }
+            else
+            {
+                picJet.Location = new Point(picJet.Location.X + 5, picJet.Location.Y);
             }
 
           
+
         }
+
+
+        public void ReturnBase()
+        {
+            Image imgJet2 = picJet.BackgroundImage;
+            imgJet2.RotateFlip(RotateFlipType.Rotate180FlipNone);
+            picJet.BackgroundImage = imgJet2;
+
+           
+
+            timeMoveBack.Start();
+            timeMoveBack.Interval = 1;
+            timeMoveBack.Tick += MoveBack;
+
+        }
+
+
+        public void MoveBack(object sender, EventArgs e)
+        {
+
+            Rectangle recJet = new Rectangle(picJet.Location.X, picJet.Location.Y, picJet.Width, picJet.Height);
+            Rectangle recHQBase = new Rectangle(pnlReturnBase.Location.X, pnlReturnBase.Location.Y, pnlReturnBase.Width, pnlReturnBase.Height);
+
+
+            bool isCollision = recJet.IntersectsWith(recHQBase);
+
+
+            if (isCollision)
+            {
+                EndTrip();
+                timeMoveBack.Stop();
+            }
+            else
+            {
+                picJet.Location = new Point(picJet.Location.X - 5, picJet.Location.Y);
+            }
+
+            
+        }
+
+        public void EndTrip()
+        {
+            //Show status of damage
+        }
+
+
+
+
 
     }
 }
