@@ -32,8 +32,7 @@ namespace Project_PRG282
             pnlAirStripStart.BorderStyle = BorderStyle.None;
             pnlAirStripEnd.BorderStyle = BorderStyle.None;
             pnlAttackStrip.BorderStyle = BorderStyle.None;
-            pnlOnstacleZone.BorderStyle = BorderStyle.None;
-            pnlObstacleMenu.BorderStyle = BorderStyle.None;
+            pbObstacleZone.BorderStyle = BorderStyle.None;
             pnlTitan.BorderStyle = BorderStyle.None;
         }
 
@@ -42,22 +41,17 @@ namespace Project_PRG282
         {
             pnlTitan.Enabled = true;
             pnlTitan.BackColor = Color.Black;
+            pbObstacleZone.BackColor = Color.Red;
         }
 
         //Hiding Obstacle Menu
         private void removeAllObstaclesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             bool check = true;
-            pnlObstacleMenu.BackColor = Color.Transparent;
-            pnlOnstacleZone.BackColor = Color.Transparent;
+            pbObstacleZone.BackColor = Color.Transparent;
 
             //Keeping dragabels
-            if (pnlTitan.Location.X > pnlObstacleMenu.Location.X && pnlTitan.Location.X + pnlTitan.Width < pnlObstacleMenu.Location.X + pnlObstacleMenu.Width)
-            {
-                pnlTitan.Enabled = false;
-                check = true;
-            }
-            if (pnlTitan.Location.X > pnlOnstacleZone.Location.X && pnlTitan.Location.X + pnlTitan.Width < pnlOnstacleZone.Location.X + pnlOnstacleZone.Width)
+            if (pnlTitan.Location.X > pbObstacleZone.Location.X && pnlTitan.Location.X + pnlTitan.Width < pbObstacleZone.Location.X + pbObstacleZone.Width)
             { 
                 check = false;
             }
