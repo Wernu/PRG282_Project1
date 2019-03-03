@@ -33,6 +33,8 @@ namespace Project_PRG282
             pnlAirStripEnd.BorderStyle = BorderStyle.None;
             pnlAttackStrip.BorderStyle = BorderStyle.None;
             pbObstacleZone.BorderStyle = BorderStyle.None;
+            pbObstacleMenu.BorderStyle = BorderStyle.None;
+            lblMenuHeader.Visible = false;
             pnlTitan.BorderStyle = BorderStyle.None;
         }
 
@@ -41,6 +43,8 @@ namespace Project_PRG282
         {
             pnlTitan.Enabled = true;
             pnlTitan.BackColor = Color.Black;
+            lblMenuHeader.Visible = true;
+            pbObstacleMenu.BackColor = Color.DarkCyan;
             pbObstacleZone.BackColor = Color.Red;
         }
 
@@ -49,6 +53,8 @@ namespace Project_PRG282
         {
             bool check = true;
             pbObstacleZone.BackColor = Color.Transparent;
+            pbObstacleMenu.BackColor = Color.Transparent;
+            lblMenuHeader.Visible = false;
 
             //Keeping dragabels
             if (pnlTitan.Location.X > pbObstacleZone.Location.X && pnlTitan.Location.X + pnlTitan.Width < pbObstacleZone.Location.X + pbObstacleZone.Width)

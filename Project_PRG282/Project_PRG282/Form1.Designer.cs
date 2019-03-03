@@ -42,8 +42,11 @@
             this.pnlAirStripStart = new System.Windows.Forms.Panel();
             this.pnlTitan = new System.Windows.Forms.Panel();
             this.pbObstacleZone = new System.Windows.Forms.PictureBox();
+            this.pbObstacleMenu = new System.Windows.Forms.PictureBox();
+            this.lblMenuHeader = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbObstacleZone)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbObstacleMenu)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -146,7 +149,7 @@
             // 
             this.pnlTitan.BackColor = System.Drawing.Color.Transparent;
             this.pnlTitan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlTitan.Location = new System.Drawing.Point(37, 58);
+            this.pnlTitan.Location = new System.Drawing.Point(24, 66);
             this.pnlTitan.Name = "pnlTitan";
             this.pnlTitan.Size = new System.Drawing.Size(31, 32);
             this.pnlTitan.TabIndex = 4;
@@ -161,6 +164,27 @@
             this.pbObstacleZone.TabIndex = 0;
             this.pbObstacleZone.TabStop = false;
             // 
+            // pbObstacleMenu
+            // 
+            this.pbObstacleMenu.BackColor = System.Drawing.Color.Transparent;
+            this.pbObstacleMenu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pbObstacleMenu.Location = new System.Drawing.Point(12, 31);
+            this.pbObstacleMenu.Name = "pbObstacleMenu";
+            this.pbObstacleMenu.Size = new System.Drawing.Size(204, 225);
+            this.pbObstacleMenu.TabIndex = 5;
+            this.pbObstacleMenu.TabStop = false;
+            // 
+            // lblMenuHeader
+            // 
+            this.lblMenuHeader.AutoSize = true;
+            this.lblMenuHeader.BackColor = System.Drawing.Color.DarkCyan;
+            this.lblMenuHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMenuHeader.Location = new System.Drawing.Point(20, 39);
+            this.lblMenuHeader.Name = "lblMenuHeader";
+            this.lblMenuHeader.Size = new System.Drawing.Size(102, 24);
+            this.lblMenuHeader.TabIndex = 6;
+            this.lblMenuHeader.Text = "Obstacles";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -168,6 +192,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1182, 553);
+            this.Controls.Add(this.lblMenuHeader);
             this.Controls.Add(this.pnlAirStripStart);
             this.Controls.Add(this.pnlJet);
             this.Controls.Add(this.pnlTitan);
@@ -175,6 +200,7 @@
             this.Controls.Add(this.pnlAttackStrip);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pbObstacleZone);
+            this.Controls.Add(this.pbObstacleMenu);
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
@@ -185,6 +211,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbObstacleZone)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbObstacleMenu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,6 +232,8 @@
         private System.Windows.Forms.Panel pnlAirStripStart;
         private System.Windows.Forms.Panel pnlTitan;
         private System.Windows.Forms.PictureBox pbObstacleZone;
+        private System.Windows.Forms.PictureBox pbObstacleMenu;
+        private System.Windows.Forms.Label lblMenuHeader;
     }
 }
 
