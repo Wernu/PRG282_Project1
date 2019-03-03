@@ -36,8 +36,14 @@
             this.startToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlJet = new System.Windows.Forms.Panel();
+            this.pnlAttackStrip = new System.Windows.Forms.Panel();
+            this.pnlAirStripEnd = new System.Windows.Forms.Panel();
+            this.pnlAirStripStart = new System.Windows.Forms.Panel();
+            this.pnlTitan = new System.Windows.Forms.Panel();
+            this.pbObstacleZone = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbObstacleZone)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -50,8 +56,8 @@
             this.exitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(822, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1182, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -61,67 +67,124 @@
             this.addObstaclesToolStripMenuItem,
             this.removeAllObstaclesToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
             this.menuToolStripMenuItem.Text = "Menu";
             // 
             // addObstaclesToolStripMenuItem
             // 
             this.addObstaclesToolStripMenuItem.Name = "addObstaclesToolStripMenuItem";
-            this.addObstaclesToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.addObstaclesToolStripMenuItem.Text = "Add Obstacles";
+            this.addObstaclesToolStripMenuItem.Size = new System.Drawing.Size(223, 26);
+            this.addObstaclesToolStripMenuItem.Text = "Open Obstacle Menu";
+            this.addObstaclesToolStripMenuItem.Click += new System.EventHandler(this.addObstaclesToolStripMenuItem_Click);
             // 
             // removeAllObstaclesToolStripMenuItem
             // 
             this.removeAllObstaclesToolStripMenuItem.Name = "removeAllObstaclesToolStripMenuItem";
-            this.removeAllObstaclesToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.removeAllObstaclesToolStripMenuItem.Text = "Remove All Obstacles";
+            this.removeAllObstaclesToolStripMenuItem.Size = new System.Drawing.Size(223, 26);
+            this.removeAllObstaclesToolStripMenuItem.Text = "Close Obstacle Menu";
+            this.removeAllObstaclesToolStripMenuItem.Click += new System.EventHandler(this.removeAllObstaclesToolStripMenuItem_Click);
             // 
             // startToolStripMenuItem
             // 
             this.startToolStripMenuItem.Name = "startToolStripMenuItem";
-            this.startToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.startToolStripMenuItem.Size = new System.Drawing.Size(52, 24);
             this.startToolStripMenuItem.Text = "Start";
             // 
             // stopToolStripMenuItem
             // 
             this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
-            this.stopToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.stopToolStripMenuItem.Size = new System.Drawing.Size(52, 24);
             this.stopToolStripMenuItem.Text = "Stop";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(45, 24);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // panel1
+            // pnlJet
             // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(92, 239);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(50, 54);
-            this.panel1.TabIndex = 1;
+            this.pnlJet.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.pnlJet.BackColor = System.Drawing.Color.Transparent;
+            this.pnlJet.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlJet.BackgroundImage")));
+            this.pnlJet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlJet.Location = new System.Drawing.Point(340, 185);
+            this.pnlJet.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlJet.Name = "pnlJet";
+            this.pnlJet.Size = new System.Drawing.Size(43, 40);
+            this.pnlJet.TabIndex = 1;
+            // 
+            // pnlAttackStrip
+            // 
+            this.pnlAttackStrip.BackColor = System.Drawing.Color.Transparent;
+            this.pnlAttackStrip.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlAttackStrip.Location = new System.Drawing.Point(1044, 185);
+            this.pnlAttackStrip.Name = "pnlAttackStrip";
+            this.pnlAttackStrip.Size = new System.Drawing.Size(48, 330);
+            this.pnlAttackStrip.TabIndex = 0;
+            // 
+            // pnlAirStripEnd
+            // 
+            this.pnlAirStripEnd.BackColor = System.Drawing.Color.Transparent;
+            this.pnlAirStripEnd.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlAirStripEnd.Location = new System.Drawing.Point(286, 271);
+            this.pnlAirStripEnd.Name = "pnlAirStripEnd";
+            this.pnlAirStripEnd.Size = new System.Drawing.Size(23, 22);
+            this.pnlAirStripEnd.TabIndex = 1;
+            // 
+            // pnlAirStripStart
+            // 
+            this.pnlAirStripStart.BackColor = System.Drawing.Color.Transparent;
+            this.pnlAirStripStart.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlAirStripStart.Location = new System.Drawing.Point(92, 262);
+            this.pnlAirStripStart.Name = "pnlAirStripStart";
+            this.pnlAirStripStart.Size = new System.Drawing.Size(23, 22);
+            this.pnlAirStripStart.TabIndex = 2;
+            // 
+            // pnlTitan
+            // 
+            this.pnlTitan.BackColor = System.Drawing.Color.Transparent;
+            this.pnlTitan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlTitan.Location = new System.Drawing.Point(37, 58);
+            this.pnlTitan.Name = "pnlTitan";
+            this.pnlTitan.Size = new System.Drawing.Size(31, 32);
+            this.pnlTitan.TabIndex = 4;
+            // 
+            // pbObstacleZone
+            // 
+            this.pbObstacleZone.BackColor = System.Drawing.Color.Transparent;
+            this.pbObstacleZone.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pbObstacleZone.Location = new System.Drawing.Point(460, 31);
+            this.pbObstacleZone.Name = "pbObstacleZone";
+            this.pbObstacleZone.Size = new System.Drawing.Size(436, 521);
+            this.pbObstacleZone.TabIndex = 0;
+            this.pbObstacleZone.TabStop = false;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(822, 477);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1182, 553);
+            this.Controls.Add(this.pnlAirStripStart);
+            this.Controls.Add(this.pnlJet);
+            this.Controls.Add(this.pnlTitan);
+            this.Controls.Add(this.pnlAirStripEnd);
+            this.Controls.Add(this.pnlAttackStrip);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.pbObstacleZone);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.MinimizeBox = false;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Map";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbObstacleZone)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,7 +199,12 @@
         private System.Windows.Forms.ToolStripMenuItem startToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stopToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlJet;
+        private System.Windows.Forms.Panel pnlAttackStrip;
+        private System.Windows.Forms.Panel pnlAirStripEnd;
+        private System.Windows.Forms.Panel pnlAirStripStart;
+        private System.Windows.Forms.Panel pnlTitan;
+        private System.Windows.Forms.PictureBox pbObstacleZone;
     }
 }
 
