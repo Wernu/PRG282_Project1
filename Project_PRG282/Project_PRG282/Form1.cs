@@ -81,6 +81,7 @@ namespace Project_PRG282
 
         private void startToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            startToolStripMenuItem.Enabled = false;
             timeMove.Start();
             timeMove.Interval = 1;
             timeMove.Tick += Move;
