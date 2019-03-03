@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
+using System.Threading;
 
 namespace Project_PRG282
 {
@@ -77,5 +78,38 @@ namespace Project_PRG282
                 pnlTitan.BackColor = Color.Transparent;
             }
         }
+
+        private void startToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Thread thMoveEnemy = new Thread(MovingToEnemy);
+            thMoveEnemy.Start();
+
+        }
+
+        public void MovingToEnemy()
+        {
+
+            if (picJet.InvokeRequired)
+            {
+                this.Invoke(new MethodInvoker(delegate
+                {
+                    for (int i = pnlAirStripStart.Location.X; i < pnlAttackStart.Location.X; i++)
+                    {
+                        for (int k = pnlAirStripStart.Location.Y; k > pnlAttackStart.Location.Y; k++)
+                        {
+                            picJet.Location = new Point(i,k);
+                            Thread.Sleep(30);
+                        }
+                    }
+                    
+
+                }));
+
+
+            }
+
+          
+        }
+
     }
 }
