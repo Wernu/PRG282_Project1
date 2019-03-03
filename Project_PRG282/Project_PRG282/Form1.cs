@@ -35,6 +35,12 @@ namespace Project_PRG282
             pnlAttackEnd.BorderStyle = BorderStyle.None;
             pbObstacleZone.BorderStyle = BorderStyle.None;
             pnlTitan.BorderStyle = BorderStyle.None;
+
+            //Moving the jet to the start of the airstrip
+
+            pnlAirStripStart.Hide();           
+            pnlJet.Location = new Point(pnlAirStripStart.Location.X, pnlAirStripStart.Location.Y);
+
         }
 
         //Displaying Obstacle Menu
