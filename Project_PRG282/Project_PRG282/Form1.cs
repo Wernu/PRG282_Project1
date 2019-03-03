@@ -31,7 +31,8 @@ namespace Project_PRG282
             //Hiding zones (Obstacle zone, running strip)
             pnlAirStripStart.BorderStyle = BorderStyle.None;
             pnlAirStripEnd.BorderStyle = BorderStyle.None;
-            pnlAttackStrip.BorderStyle = BorderStyle.None;
+            pnlAttackStart.BorderStyle = BorderStyle.None;
+            pnlAttackEnd.BorderStyle = BorderStyle.None;
             pbObstacleZone.BorderStyle = BorderStyle.None;
             pbObstacleMenu.BorderStyle = BorderStyle.None;
             lblMenuHeader.Visible = false;
