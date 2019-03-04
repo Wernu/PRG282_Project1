@@ -26,7 +26,7 @@ namespace Project_PRG282
 
 
         private void Form1_Load(object sender, EventArgs e)
-        { 
+        {
             //Creating obstacle menu
             pnlTitan.Enabled = false;
             pnlAnza.Enabled = false;
@@ -61,7 +61,7 @@ namespace Project_PRG282
 
             //Moving the jet to the start of the airstrip
 
-            pnlAirStripStart.Hide();           
+            pnlAirStripStart.Hide();
             picJet.Location = new Point(pnlAirStripStart.Location.X, pnlAirStripStart.Location.Y);
             picJet.BorderStyle = BorderStyle.None;
             //Rotating the jet
@@ -112,7 +112,7 @@ namespace Project_PRG282
         {
             if (obstacle.Location.X > pbObstacleZone.Location.X && obstacle.Location.X + obstacle.Width < pbObstacleZone.Location.X + pbObstacleZone.Width)
             {
-                
+
             }
             else
             {
@@ -136,12 +136,12 @@ namespace Project_PRG282
 
 
         }
-        
+
         int X1 = -5;
         int X2 = 5;
         int Y1 = -5;
         int Y2 = 5;
-        public void MoveObject (object sender, EventArgs e)
+        public void MoveObject(object sender, EventArgs e)
         {
             ObjectsMovement(pnlTitan);
             ObjectsMovement(pnlAnza);
@@ -184,7 +184,7 @@ namespace Project_PRG282
             }
         }
 
-        public void Move (object sender, EventArgs e)
+        public void Move(object sender, EventArgs e)
         {
 
 
@@ -193,11 +193,11 @@ namespace Project_PRG282
 
             bool isCollision = recJet.IntersectsWith(recEBase);
 
-            
+
 
             if (isCollision)
             {
-               
+
                 timeMove.Stop();
                 ReturnBase();
             }
@@ -208,7 +208,7 @@ namespace Project_PRG282
                 thDodge.Start();
             }
 
-          
+
 
         }
 
@@ -219,7 +219,7 @@ namespace Project_PRG282
             imgJet2.RotateFlip(RotateFlipType.Rotate180FlipNone);
             picJet.BackgroundImage = imgJet2;
 
-           
+
 
             timeMoveBack.Start();
             timeMoveBack.Interval = 50;
@@ -233,12 +233,11 @@ namespace Project_PRG282
 
             Rectangle recJet = new Rectangle(picJet.Location.X, picJet.Location.Y, picJet.Width, picJet.Height);
             Rectangle recHQBase = new Rectangle(pnlReturnBase.Location.X, pnlReturnBase.Location.Y, pnlReturnBase.Width, pnlReturnBase.Height);
+            bool isCollision_Base = recJet.IntersectsWith(recHQBase);
 
 
-            bool isCollision = recJet.IntersectsWith(recHQBase);
 
-
-            if (isCollision)
+            if (isCollision_Base)
             {
                 EndTrip();
                 timeMoveBack.Stop();
@@ -248,7 +247,10 @@ namespace Project_PRG282
                 picJet.Location = new Point(picJet.Location.X - 5, picJet.Location.Y);
             }
 
-            
+            Thread thDodge = new Thread(DodgeObject);
+            thDodge.Start();
+
+
         }
 
         public void EndTrip()
@@ -260,12 +262,25 @@ namespace Project_PRG282
         {
             Rectangle recJet = new Rectangle(picJet.Location.X, picJet.Location.Y, picJet.Width * 2, picJet.Height);
             Rectangle recTitan = new Rectangle(pnlTitan.Location.X, pnlTitan.Location.Y, pnlTitan.Width, pnlTitan.Height * 2);
+            Rectangle recAnza = new Rectangle(pnlAnza.Location.X, pnlAnza.Location.Y, pnlAnza.Width, pnlAnza.Height * 2);
+            Rectangle recFlak = new Rectangle(pnlFlakpanzer.Location.X, pnlFlakpanzer.Location.Y, pnlFlakpanzer.Width, pnlFlakpanzer.Height * 2);
+            Rectangle recIronDome = new Rectangle(pnlIronDome.Location.X, pnlIronDome.Location.Y, pnlIronDome.Width, pnlIronDome.Height * 2);
+            Rectangle recMachbet = new Rectangle(pnlmachbet.Location.X, pnlmachbet.Location.Y, pnlmachbet.Width, pnlmachbet.Height * 2);
+            Rectangle recPatriot = new Rectangle(pnlPatriot.Location.X, pnlPatriot.Location.Y, pnlPatriot.Width, pnlPatriot.Height * 2);
+            Rectangle recSpyder = new Rectangle(pnlSpyder.Location.X, pnlSpyder.Location.Y, pnlSpyder.Width, pnlSpyder.Height * 2);
+            Rectangle recThel = new Rectangle(pnlThel.Location.X, pnlThel.Location.Y, pnlThel.Width, pnlThel.Height);
+
 
             int toAvoid = recTitan.Width;
 
-            bool isCollision = recJet.IntersectsWith(recTitan);
-
-            
+            bool isCollision  = recJet.IntersectsWith(recTitan);
+            bool isCollision2 = recJet.IntersectsWith(recAnza);
+            bool isCollision3 = recJet.IntersectsWith(recFlak);
+            bool isCollision4 = recJet.IntersectsWith(recIronDome);
+            bool isCollision5 = recJet.IntersectsWith(recMachbet);
+            bool isCollision6 = recJet.IntersectsWith(recPatriot);
+            bool isCollision7 = recJet.IntersectsWith(recSpyder);
+            bool isCollision8 = recJet.IntersectsWith(recThel);
 
             if (isCollision)
             {
@@ -278,20 +293,189 @@ namespace Project_PRG282
                         for (int i = 0; i < toAvoid; i++)
                         {
                             picJet.Location = new Point(picJet.Location.X, picJet.Location.Y + 1);
-                            
+
                         }
 
-                        
+
 
                     }));
 
 
                 }
-               
-                
+
+
             }
-           
-            
+
+
+            if (isCollision2)
+            {
+
+                if (picJet.InvokeRequired)
+                {
+                    this.Invoke(new MethodInvoker(delegate
+                    {
+
+                        for (int i = 0; i < toAvoid; i++)
+                        {
+                            picJet.Location = new Point(picJet.Location.X, picJet.Location.Y + 1);
+
+                        }
+
+
+
+                    }));
+
+
+                }
+
+
+            }
+
+            if (isCollision3)
+            {
+
+                if (picJet.InvokeRequired)
+                {
+                    this.Invoke(new MethodInvoker(delegate
+                    {
+
+                        for (int i = 0; i < toAvoid; i++)
+                        {
+                            picJet.Location = new Point(picJet.Location.X, picJet.Location.Y + 1);
+
+                        }
+
+
+
+                    }));
+
+
+                }
+
+
+            }
+
+            if (isCollision4)
+            {
+
+                if (picJet.InvokeRequired)
+                {
+                    this.Invoke(new MethodInvoker(delegate
+                    {
+
+                        for (int i = 0; i < toAvoid; i++)
+                        {
+                            picJet.Location = new Point(picJet.Location.X, picJet.Location.Y + 1);
+
+                        }
+
+
+
+                    }));
+
+
+                }
+
+
+            }
+
+            if (isCollision5)
+            {
+
+                if (picJet.InvokeRequired)
+                {
+                    this.Invoke(new MethodInvoker(delegate
+                    {
+
+                        for (int i = 0; i < toAvoid; i++)
+                        {
+                            picJet.Location = new Point(picJet.Location.X, picJet.Location.Y + 1);
+
+                        }
+
+
+
+                    }));
+
+
+                }
+
+
+            }
+
+            if (isCollision6)
+            {
+
+                if (picJet.InvokeRequired)
+                {
+                    this.Invoke(new MethodInvoker(delegate
+                    {
+
+                        for (int i = 0; i < toAvoid; i++)
+                        {
+                            picJet.Location = new Point(picJet.Location.X, picJet.Location.Y + 1);
+
+                        }
+
+
+
+                    }));
+
+
+                }
+
+
+            }
+
+            if (isCollision7)
+            {
+
+                if (picJet.InvokeRequired)
+                {
+                    this.Invoke(new MethodInvoker(delegate
+                    {
+
+                        for (int i = 0; i < toAvoid; i++)
+                        {
+                            picJet.Location = new Point(picJet.Location.X, picJet.Location.Y + 1);
+
+                        }
+
+
+
+                    }));
+
+
+                }
+
+
+            }
+
+            if (isCollision8)
+            {
+
+                if (picJet.InvokeRequired)
+                {
+                    this.Invoke(new MethodInvoker(delegate
+                    {
+
+                        for (int i = 0; i < toAvoid; i++)
+                        {
+                            picJet.Location = new Point(picJet.Location.X, picJet.Location.Y + 1);
+
+                        }
+
+
+
+                    }));
+
+
+                }
+
+
+            }
+
+
 
         }
 
