@@ -46,6 +46,13 @@
             this.timeMoveBack = new System.Windows.Forms.Timer(this.components);
             this.pnlReturnBase = new System.Windows.Forms.Panel();
             this.timeObjectMove = new System.Windows.Forms.Timer(this.components);
+            this.pnlmachbet = new System.Windows.Forms.Panel();
+            this.pnlSpyder = new System.Windows.Forms.Panel();
+            this.pnlPatriot = new System.Windows.Forms.Panel();
+            this.pnlIronDome = new System.Windows.Forms.Panel();
+            this.pnlThel = new System.Windows.Forms.Panel();
+            this.pnlAnza = new System.Windows.Forms.Panel();
+            this.pnlFlakpanzer = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbObstacleZone)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picJet)).BeginInit();
@@ -147,7 +154,7 @@
             this.picJet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picJet.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.picJet.Location = new System.Drawing.Point(177, 130);
-            this.picJet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picJet.Margin = new System.Windows.Forms.Padding(4);
             this.picJet.Name = "picJet";
             this.picJet.Size = new System.Drawing.Size(44, 41);
             this.picJet.TabIndex = 8;
@@ -158,7 +165,7 @@
             this.pnlEnemyBase.BackColor = System.Drawing.Color.Transparent;
             this.pnlEnemyBase.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlEnemyBase.Location = new System.Drawing.Point(1010, 197);
-            this.pnlEnemyBase.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlEnemyBase.Margin = new System.Windows.Forms.Padding(4);
             this.pnlEnemyBase.Name = "pnlEnemyBase";
             this.pnlEnemyBase.Size = new System.Drawing.Size(184, 299);
             this.pnlEnemyBase.TabIndex = 9;
@@ -168,10 +175,80 @@
             this.pnlReturnBase.BackColor = System.Drawing.Color.Transparent;
             this.pnlReturnBase.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlReturnBase.Location = new System.Drawing.Point(0, 222);
-            this.pnlReturnBase.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlReturnBase.Margin = new System.Windows.Forms.Padding(4);
             this.pnlReturnBase.Name = "pnlReturnBase";
             this.pnlReturnBase.Size = new System.Drawing.Size(109, 134);
             this.pnlReturnBase.TabIndex = 10;
+            // 
+            // pnlmachbet
+            // 
+            this.pnlmachbet.BackColor = System.Drawing.Color.Transparent;
+            this.pnlmachbet.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlmachbet.Location = new System.Drawing.Point(73, 58);
+            this.pnlmachbet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlmachbet.Name = "pnlmachbet";
+            this.pnlmachbet.Size = new System.Drawing.Size(17, 16);
+            this.pnlmachbet.TabIndex = 5;
+            // 
+            // pnlSpyder
+            // 
+            this.pnlSpyder.BackColor = System.Drawing.Color.Transparent;
+            this.pnlSpyder.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlSpyder.Location = new System.Drawing.Point(108, 58);
+            this.pnlSpyder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlSpyder.Name = "pnlSpyder";
+            this.pnlSpyder.Size = new System.Drawing.Size(17, 16);
+            this.pnlSpyder.TabIndex = 6;
+            // 
+            // pnlPatriot
+            // 
+            this.pnlPatriot.BackColor = System.Drawing.Color.Transparent;
+            this.pnlPatriot.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlPatriot.Location = new System.Drawing.Point(144, 58);
+            this.pnlPatriot.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlPatriot.Name = "pnlPatriot";
+            this.pnlPatriot.Size = new System.Drawing.Size(17, 16);
+            this.pnlPatriot.TabIndex = 7;
+            // 
+            // pnlIronDome
+            // 
+            this.pnlIronDome.BackColor = System.Drawing.Color.Transparent;
+            this.pnlIronDome.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlIronDome.Location = new System.Drawing.Point(37, 89);
+            this.pnlIronDome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlIronDome.Name = "pnlIronDome";
+            this.pnlIronDome.Size = new System.Drawing.Size(17, 16);
+            this.pnlIronDome.TabIndex = 8;
+            // 
+            // pnlThel
+            // 
+            this.pnlThel.BackColor = System.Drawing.Color.Transparent;
+            this.pnlThel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlThel.Location = new System.Drawing.Point(73, 89);
+            this.pnlThel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlThel.Name = "pnlThel";
+            this.pnlThel.Size = new System.Drawing.Size(17, 16);
+            this.pnlThel.TabIndex = 9;
+            // 
+            // pnlAnza
+            // 
+            this.pnlAnza.BackColor = System.Drawing.Color.Transparent;
+            this.pnlAnza.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlAnza.Location = new System.Drawing.Point(108, 89);
+            this.pnlAnza.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlAnza.Name = "pnlAnza";
+            this.pnlAnza.Size = new System.Drawing.Size(17, 16);
+            this.pnlAnza.TabIndex = 10;
+            // 
+            // pnlFlakpanzer
+            // 
+            this.pnlFlakpanzer.BackColor = System.Drawing.Color.Transparent;
+            this.pnlFlakpanzer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlFlakpanzer.Location = new System.Drawing.Point(144, 89);
+            this.pnlFlakpanzer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlFlakpanzer.Name = "pnlFlakpanzer";
+            this.pnlFlakpanzer.Size = new System.Drawing.Size(17, 16);
+            this.pnlFlakpanzer.TabIndex = 11;
             // 
             // Form1
             // 
@@ -180,6 +257,13 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1181, 553);
+            this.Controls.Add(this.pnlFlakpanzer);
+            this.Controls.Add(this.pnlAnza);
+            this.Controls.Add(this.pnlThel);
+            this.Controls.Add(this.pnlIronDome);
+            this.Controls.Add(this.pnlPatriot);
+            this.Controls.Add(this.pnlSpyder);
+            this.Controls.Add(this.pnlmachbet);
             this.Controls.Add(this.picJet);
             this.Controls.Add(this.pnlTitan);
             this.Controls.Add(this.menuStrip1);
@@ -223,6 +307,13 @@
         private System.Windows.Forms.Timer timeMoveBack;
         private System.Windows.Forms.Panel pnlReturnBase;
         private System.Windows.Forms.Timer timeObjectMove;
+        private System.Windows.Forms.Panel pnlmachbet;
+        private System.Windows.Forms.Panel pnlSpyder;
+        private System.Windows.Forms.Panel pnlPatriot;
+        private System.Windows.Forms.Panel pnlIronDome;
+        private System.Windows.Forms.Panel pnlThel;
+        private System.Windows.Forms.Panel pnlAnza;
+        private System.Windows.Forms.Panel pnlFlakpanzer;
     }
 }
 

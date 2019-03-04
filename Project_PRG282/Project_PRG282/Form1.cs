@@ -29,14 +29,35 @@ namespace Project_PRG282
         { 
             //Creating obstacle menu
             pnlTitan.Enabled = false;
+            pnlAnza.Enabled = false;
+            pnlFlakpanzer.Enabled = false;
+            pnlIronDome.Enabled = false;
+            pnlmachbet.Enabled = false;
+            pnlPatriot.Enabled = false;
+            pnlSpyder.Enabled = false;
+            pnlThel.Enabled = false;
             ControlExtension.Draggable(pnlTitan, true);
+            ControlExtension.Draggable(pnlAnza, true);
+            ControlExtension.Draggable(pnlFlakpanzer, true);
+            ControlExtension.Draggable(pnlIronDome, true);
+            ControlExtension.Draggable(pnlmachbet, true);
+            ControlExtension.Draggable(pnlPatriot, true);
+            ControlExtension.Draggable(pnlSpyder, true);
+            ControlExtension.Draggable(pnlThel, true);
 
             //Hiding zones (Obstacle zone, running strip)
             pnlAirStripStart.BorderStyle = BorderStyle.None;
             pbObstacleZone.BorderStyle = BorderStyle.None;
             pnlEnemyBase.BorderStyle = BorderStyle.None;
-            pnlTitan.BorderStyle = BorderStyle.None;
             pnlReturnBase.BorderStyle = BorderStyle.None;
+            pnlTitan.BorderStyle = BorderStyle.None;
+            pnlAnza.BorderStyle = BorderStyle.None;
+            pnlFlakpanzer.BorderStyle = BorderStyle.None;
+            pnlIronDome.BorderStyle = BorderStyle.None;
+            pnlmachbet.BorderStyle = BorderStyle.None;
+            pnlPatriot.BorderStyle = BorderStyle.None;
+            pnlSpyder.BorderStyle = BorderStyle.None;
+            pnlThel.BorderStyle = BorderStyle.None;
 
             //Moving the jet to the start of the airstrip
 
@@ -54,30 +75,50 @@ namespace Project_PRG282
         private void addObstaclesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlTitan.Enabled = true;
+            pnlAnza.Enabled = true;
+            pnlFlakpanzer.Enabled = true;
+            pnlIronDome.Enabled = true;
+            pnlmachbet.Enabled = true;
+            pnlPatriot.Enabled = true;
+            pnlSpyder.Enabled = true;
+            pnlThel.Enabled = true;
             pnlTitan.BackColor = Color.Black;
+            pnlAnza.BackColor = Color.Black;
+            pnlFlakpanzer.BackColor = Color.Black;
+            pnlIronDome.BackColor = Color.Black;
+            pnlmachbet.BackColor = Color.Black;
+            pnlPatriot.BackColor = Color.Black;
+            pnlSpyder.BackColor = Color.Black;
+            pnlThel.BackColor = Color.Black;
             pbObstacleZone.BackColor = Color.Red;
         }
 
         //Hiding Obstacle Menu
         private void removeAllObstaclesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool check = true;
             pbObstacleZone.BackColor = Color.Transparent;
+            checkObstacles(pnlTitan);
+            checkObstacles(pnlAnza);
+            checkObstacles(pnlFlakpanzer);
+            checkObstacles(pnlIronDome);
+            checkObstacles(pnlmachbet);
+            checkObstacles(pnlPatriot);
+            checkObstacles(pnlSpyder);
+            checkObstacles(pnlThel);
 
-            //Keeping dragabels
-            if (pnlTitan.Location.X > pbObstacleZone.Location.X && pnlTitan.Location.X + pnlTitan.Width < pbObstacleZone.Location.X + pbObstacleZone.Width)
+        }
+        //Checking if obstacles are outside the obstacle Zone
+        public void checkObstacles(Panel obstacle)
+        {
+            if (obstacle.Location.X > pbObstacleZone.Location.X && obstacle.Location.X + obstacle.Width < pbObstacleZone.Location.X + pbObstacleZone.Width)
             {
-                pnlTitan.Enabled = false;
-                check = false;
+                
             }
             else
             {
-                MessageBox.Show("Obstacles can only be place in the red zone");
-            }
-            if (check)
-            {
-                pnlTitan.Enabled = false;
-                pnlTitan.BackColor = Color.Transparent;
+                obstacle.Enabled = false;
+                obstacle.Hide();
+                obstacle.BackColor = Color.Transparent;
             }
         }
 
@@ -95,38 +136,49 @@ namespace Project_PRG282
 
 
         }
-
-
+        
         int X1 = -5;
         int X2 = 5;
         int Y1 = -5;
         int Y2 = 5;
         public void MoveObject (object sender, EventArgs e)
         {
+            ObjectsMovement(pnlTitan);
+            ObjectsMovement(pnlAnza);
+            ObjectsMovement(pnlFlakpanzer);
+            ObjectsMovement(pnlIronDome);
+            ObjectsMovement(pnlmachbet);
+            ObjectsMovement(pnlPatriot);
+            ObjectsMovement(pnlSpyder);
+            ObjectsMovement(pnlThel);
+        }
+
+        public void ObjectsMovement(Panel obstacle)
+        {
             Random r = new Random();
-            
-            pnlTitan.Location = new Point(pnlTitan.Location.X + r.Next(X1, X2), pnlTitan.Location.Y + r.Next(Y1, Y2));
-            if (pnlTitan.Location.X <= pbObstacleZone.Location.X)
+
+            obstacle.Location = new Point(obstacle.Location.X + r.Next(X1, X2), obstacle.Location.Y + r.Next(Y1, Y2));
+            if (obstacle.Location.X <= pbObstacleZone.Location.X)
             {
-                pnlTitan.Location = new Point(pnlTitan.Location.X + 5, pnlTitan.Location.Y);
+                obstacle.Location = new Point(obstacle.Location.X + 5, obstacle.Location.Y);
                 X1 = -1;
                 X2 = 7;
             }
-            if (pnlTitan.Location.X + pnlTitan.Width >= pbObstacleZone.Location.X + pbObstacleZone.Width)
+            if (obstacle.Location.X + obstacle.Width >= pbObstacleZone.Location.X + pbObstacleZone.Width)
             {
-                pnlTitan.Location = new Point(pnlTitan.Location.X - 5, pnlTitan.Location.Y);
+                obstacle.Location = new Point(obstacle.Location.X - 5, obstacle.Location.Y);
                 X1 = -7;
                 X2 = 1;
             }
-            if (pnlTitan.Location.Y <= pbObstacleZone.Location.Y)
+            if (obstacle.Location.Y <= pbObstacleZone.Location.Y)
             {
-                pnlTitan.Location = new Point(pnlTitan.Location.X , pnlTitan.Location.Y + 5);
+                obstacle.Location = new Point(obstacle.Location.X, obstacle.Location.Y + 5);
                 Y1 = -1;
                 Y2 = 7;
             }
-            if (pnlTitan.Location.Y + pnlTitan.Height >= pbObstacleZone.Location.Y + pbObstacleZone.Height)
+            if (obstacle.Location.Y + obstacle.Height >= pbObstacleZone.Location.Y + pbObstacleZone.Height)
             {
-                pnlTitan.Location = new Point(pnlTitan.Location.X, pnlTitan.Location.Y - 5);
+                obstacle.Location = new Point(obstacle.Location.X, obstacle.Location.Y - 5);
                 Y1 = -7;
                 Y2 = 1;
             }
@@ -201,7 +253,7 @@ namespace Project_PRG282
 
         public void EndTrip()
         {
-            //Show status of damage
+            //Show status of damage, fuel etc..
         }
 
         public void DodgeObject()
