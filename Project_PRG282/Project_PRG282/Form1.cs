@@ -58,6 +58,7 @@ namespace Project_PRG282
             pnlPatriot.BorderStyle = BorderStyle.None;
             pnlSpyder.BorderStyle = BorderStyle.None;
             pnlThel.BorderStyle = BorderStyle.None;
+            pnlHQBorder.BorderStyle = BorderStyle.None;
 
             //Moving the jet to the start of the airstrip
 
@@ -191,7 +192,7 @@ namespace Project_PRG282
             Rectangle recEBase = new Rectangle(pnlEnemyBase.Location.X, pnlEnemyBase.Location.Y, pnlEnemyBase.Width, pnlEnemyBase.Height);
 
             bool isCollision = recJet.IntersectsWith(recEBase);
-            
+
             if (isCollision)
             {
                 timeMove.Stop();
@@ -203,7 +204,7 @@ namespace Project_PRG282
                 Thread thDodge = new Thread(DodgeObject);
                 thDodge.Start();
             }
-            
+
         }
 
 
@@ -220,14 +221,15 @@ namespace Project_PRG282
             timeMoveBack.Tick += MoveBack;
 
         }
-
+        bool check = true;
         public void MoveBack(object sender, EventArgs e)
         {
 
             Rectangle recJet = new Rectangle(picJet.Location.X, picJet.Location.Y, picJet.Width, picJet.Height);
             Rectangle recHQBase = new Rectangle(pnlReturnBase.Location.X, pnlReturnBase.Location.Y, pnlReturnBase.Width, pnlReturnBase.Height);
+            Rectangle recHQborder = new Rectangle(pnlHQBorder.Location.X, pnlHQBorder.Location.Y, pnlHQBorder.Width, pnlHQBorder.Height);
             bool isCollision_Base = recJet.IntersectsWith(recHQBase);
-
+            bool isCollision_Border = recJet.IntersectsWith(recHQborder);
 
 
             if (isCollision_Base)
@@ -240,10 +242,73 @@ namespace Project_PRG282
                 picJet.Location = new Point(picJet.Location.X - 5, picJet.Location.Y);
             }
 
+            if (check)
+            {
+                if (isCollision_Border)
+                {
+                    if (picJet.Location.Y > pnlHQBorder.Location.Y)
+                    {
+                        RePositionUp();
+                        check = false;
+                    }
+                }
+            }
+
+
+
+
             Thread thDodge = new Thread(DodgeObject);
             thDodge.Start();
 
 
+        }
+
+        public void RePositionUp()
+        {
+            Image imgJet2 = picJet.BackgroundImage;
+            imgJet2.RotateFlip(RotateFlipType.Rotate90FlipNone);
+            picJet.BackgroundImage = imgJet2;
+
+            timeJetMoveUp.Start();
+            timeJetMoveUp.Interval = 50;
+            timeJetMoveUp.Tick += RePositionUps;
+
+        }
+
+        public void RePositionUps(object sender, EventArgs e)
+        {
+
+            if (picJet.Location.Y == pnlAirStripStart.Location.Y)
+            {
+                Straight();               
+            }
+            else
+            {
+                picJet.Location = new Point(picJet.Location.X, picJet.Location.Y - 1);
+            }
+
+        }
+        bool onlyOnce = true;
+        public void Straight()
+        {
+            
+            if (picJet.Location.X > pnlAirStripStart.Location.X)
+            {
+
+                if (onlyOnce == true)
+                {
+                    Image imgJet2 = picJet.BackgroundImage;
+                    imgJet2.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                    picJet.BackgroundImage = imgJet2;
+                    onlyOnce = false;
+                }
+                
+                picJet.Location = new Point(picJet.Location.X - 1, picJet.Location.Y);
+            }
+            else
+            {
+                timeJetMoveUp.Stop();
+            }
         }
 
         public void EndTrip()
@@ -266,7 +331,7 @@ namespace Project_PRG282
 
             int toAvoid = recTitan.Width;
 
-            bool isCollision  = recJet.IntersectsWith(recTitan);
+            bool isCollision = recJet.IntersectsWith(recTitan);
             bool isCollision2 = recJet.IntersectsWith(recAnza);
             bool isCollision3 = recJet.IntersectsWith(recFlak);
             bool isCollision4 = recJet.IntersectsWith(recIronDome);
