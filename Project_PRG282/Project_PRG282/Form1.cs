@@ -91,6 +91,7 @@ namespace Project_PRG282
             pnlSpyder.BackColor = Color.Black;
             pnlThel.BackColor = Color.Black;
             pbObstacleZone.BackColor = Color.Red;
+            startToolStripMenuItem.Enabled = false;
         }
 
         //Hiding Obstacle Menu
@@ -105,7 +106,7 @@ namespace Project_PRG282
             checkObstacles(pnlPatriot);
             checkObstacles(pnlSpyder);
             checkObstacles(pnlThel);
-
+            startToolStripMenuItem.Enabled = true;
         }
         //Checking if obstacles are outside the obstacle Zone
         public void checkObstacles(Panel obstacle)
@@ -127,14 +128,11 @@ namespace Project_PRG282
             startToolStripMenuItem.Enabled = false;
             timeMove.Start();
             timeMove.Interval = 50;
-            timeMove.Tick += Move;
+            timeMove.Tick += MoveJet;
 
             timeObjectMove.Start();
-            timeObjectMove.Interval = 100;
+            timeObjectMove.Interval = 120;
             timeObjectMove.Tick += MoveObject;
-
-
-
         }
 
         int X1 = -5;
@@ -143,61 +141,59 @@ namespace Project_PRG282
         int Y2 = 5;
         public void MoveObject(object sender, EventArgs e)
         {
-            ObjectsMovement(pnlTitan);
-            ObjectsMovement(pnlAnza);
-            ObjectsMovement(pnlFlakpanzer);
-            ObjectsMovement(pnlIronDome);
-            ObjectsMovement(pnlmachbet);
-            ObjectsMovement(pnlPatriot);
-            ObjectsMovement(pnlSpyder);
-            ObjectsMovement(pnlThel);
-        }
-
-        public void ObjectsMovement(Panel obstacle)
-        {
             Random r = new Random();
-
-            obstacle.Location = new Point(obstacle.Location.X + r.Next(X1, X2), obstacle.Location.Y + r.Next(Y1, Y2));
-            if (obstacle.Location.X <= pbObstacleZone.Location.X)
-            {
-                obstacle.Location = new Point(obstacle.Location.X + 5, obstacle.Location.Y);
-                X1 = -1;
-                X2 = 7;
-            }
-            if (obstacle.Location.X + obstacle.Width >= pbObstacleZone.Location.X + pbObstacleZone.Width)
-            {
-                obstacle.Location = new Point(obstacle.Location.X - 5, obstacle.Location.Y);
-                X1 = -7;
-                X2 = 1;
-            }
-            if (obstacle.Location.Y <= pbObstacleZone.Location.Y)
-            {
-                obstacle.Location = new Point(obstacle.Location.X, obstacle.Location.Y + 5);
-                Y1 = -1;
-                Y2 = 7;
-            }
-            if (obstacle.Location.Y + obstacle.Height >= pbObstacleZone.Location.Y + pbObstacleZone.Height)
-            {
-                obstacle.Location = new Point(obstacle.Location.X, obstacle.Location.Y - 5);
-                Y1 = -7;
-                Y2 = 1;
-            }
+            ObjectsMovement(pnlTitan, r.Next(X1, X2), r.Next(Y1, Y2));
+            ObjectsMovement(pnlAnza, r.Next(X1, X2), r.Next(Y1, Y2));
+            ObjectsMovement(pnlFlakpanzer, r.Next(X1, X2), r.Next(Y1, Y2));
+            ObjectsMovement(pnlIronDome, r.Next(X1, X2), r.Next(Y1, Y2));
+            ObjectsMovement(pnlmachbet, r.Next(X1, X2), r.Next(Y1, Y2));
+            ObjectsMovement(pnlPatriot, r.Next(X1, X2), r.Next(Y1, Y2));
+            ObjectsMovement(pnlSpyder, r.Next(X1, X2), r.Next(Y1, Y2));
+            ObjectsMovement(pnlThel, r.Next(X1, X2), r.Next(Y1, Y2));
         }
 
-        public void Move(object sender, EventArgs e)
+        public void ObjectsMovement(Panel obstacle, int X, int Y)
         {
 
-
+            if (obstacle.Enabled == true)
+            {
+                obstacle.Location = new Point(obstacle.Location.X + X, obstacle.Location.Y + Y);
+                if (obstacle.Location.X <= pbObstacleZone.Location.X)
+                {
+                    obstacle.Location = new Point(obstacle.Location.X + 5, obstacle.Location.Y);
+                    X1 = -1;
+                    X2 = 7;
+                }
+                if (obstacle.Location.X + obstacle.Width >= pbObstacleZone.Location.X + pbObstacleZone.Width)
+                {
+                    obstacle.Location = new Point(obstacle.Location.X - 5, obstacle.Location.Y);
+                    X1 = -7;
+                    X2 = 1;
+                }
+                if (obstacle.Location.Y <= pbObstacleZone.Location.Y)
+                {
+                    obstacle.Location = new Point(obstacle.Location.X, obstacle.Location.Y + 5);
+                    Y1 = -1;
+                    Y2 = 7;
+                }
+                if (obstacle.Location.Y + obstacle.Height >= pbObstacleZone.Location.Y + pbObstacleZone.Height)
+                {
+                    obstacle.Location = new Point(obstacle.Location.X, obstacle.Location.Y - 5);
+                    Y1 = -7;
+                    Y2 = 1;
+                }
+            }
+        }
+        //Launches jet from HQ to enemy base
+        public void MoveJet(object sender, EventArgs e)
+        {
             Rectangle recJet = new Rectangle(picJet.Location.X, picJet.Location.Y, picJet.Width, picJet.Height);
             Rectangle recEBase = new Rectangle(pnlEnemyBase.Location.X, pnlEnemyBase.Location.Y, pnlEnemyBase.Width, pnlEnemyBase.Height);
 
             bool isCollision = recJet.IntersectsWith(recEBase);
-
-
-
+            
             if (isCollision)
             {
-
                 timeMove.Stop();
                 ReturnBase();
             }
@@ -207,9 +203,7 @@ namespace Project_PRG282
                 Thread thDodge = new Thread(DodgeObject);
                 thDodge.Start();
             }
-
-
-
+            
         }
 
 
@@ -226,7 +220,6 @@ namespace Project_PRG282
             timeMoveBack.Tick += MoveBack;
 
         }
-
 
         public void MoveBack(object sender, EventArgs e)
         {
@@ -289,7 +282,6 @@ namespace Project_PRG282
                 {
                     this.Invoke(new MethodInvoker(delegate
                     {
-
                         for (int i = 0; i < toAvoid; i++)
                         {
                             picJet.Location = new Point(picJet.Location.X, picJet.Location.Y + 1);
@@ -478,8 +470,6 @@ namespace Project_PRG282
 
 
         }
-
-
 
     }
 }
