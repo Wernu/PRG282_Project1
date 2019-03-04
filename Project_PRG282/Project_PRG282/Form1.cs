@@ -66,7 +66,8 @@ namespace Project_PRG282
 
             //Keeping dragabels
             if (pnlTitan.Location.X > pbObstacleZone.Location.X && pnlTitan.Location.X + pnlTitan.Width < pbObstacleZone.Location.X + pbObstacleZone.Width)
-            { 
+            {
+                pnlTitan.Enabled = false;
                 check = false;
             }
             else
@@ -75,6 +76,7 @@ namespace Project_PRG282
             }
             if (check)
             {
+                pnlTitan.Enabled = false;
                 pnlTitan.BackColor = Color.Transparent;
             }
         }
@@ -83,9 +85,51 @@ namespace Project_PRG282
         {
             startToolStripMenuItem.Enabled = false;
             timeMove.Start();
-            timeMove.Interval = 1;
+            timeMove.Interval = 50;
             timeMove.Tick += Move;
 
+            timeObjectMove.Start();
+            timeObjectMove.Interval = 100;
+            timeObjectMove.Tick += MoveObject;
+
+
+
+        }
+
+
+        int X1 = -5;
+        int X2 = 5;
+        int Y1 = -5;
+        int Y2 = 5;
+        public void MoveObject (object sender, EventArgs e)
+        {
+            Random r = new Random();
+            
+            pnlTitan.Location = new Point(pnlTitan.Location.X + r.Next(X1, X2), pnlTitan.Location.Y + r.Next(Y1, Y2));
+            if (pnlTitan.Location.X <= pbObstacleZone.Location.X)
+            {
+                pnlTitan.Location = new Point(pnlTitan.Location.X + 5, pnlTitan.Location.Y);
+                X1 = -1;
+                X2 = 7;
+            }
+            if (pnlTitan.Location.X + pnlTitan.Width >= pbObstacleZone.Location.X + pbObstacleZone.Width)
+            {
+                pnlTitan.Location = new Point(pnlTitan.Location.X - 5, pnlTitan.Location.Y);
+                X1 = -7;
+                X2 = 1;
+            }
+            if (pnlTitan.Location.Y <= pbObstacleZone.Location.Y)
+            {
+                pnlTitan.Location = new Point(pnlTitan.Location.X , pnlTitan.Location.Y + 5);
+                Y1 = -1;
+                Y2 = 7;
+            }
+            if (pnlTitan.Location.Y + pnlTitan.Height >= pbObstacleZone.Location.Y + pbObstacleZone.Height)
+            {
+                pnlTitan.Location = new Point(pnlTitan.Location.X, pnlTitan.Location.Y - 5);
+                Y1 = -7;
+                Y2 = 1;
+            }
         }
 
         public void Move (object sender, EventArgs e)
@@ -108,6 +152,8 @@ namespace Project_PRG282
             else
             {
                 picJet.Location = new Point(picJet.Location.X + 5, picJet.Location.Y);
+                Thread thDodge = new Thread(DodgeObject);
+                thDodge.Start();
             }
 
           
@@ -124,7 +170,7 @@ namespace Project_PRG282
            
 
             timeMoveBack.Start();
-            timeMoveBack.Interval = 1;
+            timeMoveBack.Interval = 50;
             timeMoveBack.Tick += MoveBack;
 
         }
@@ -158,7 +204,44 @@ namespace Project_PRG282
             //Show status of damage
         }
 
+        public void DodgeObject()
+        {
+            Rectangle recJet = new Rectangle(picJet.Location.X, picJet.Location.Y, picJet.Width * 2, picJet.Height);
+            Rectangle recTitan = new Rectangle(pnlTitan.Location.X, pnlTitan.Location.Y, pnlTitan.Width, pnlTitan.Height * 2);
 
+            int toAvoid = recTitan.Width;
+
+            bool isCollision = recJet.IntersectsWith(recTitan);
+
+            
+
+            if (isCollision)
+            {
+
+                if (picJet.InvokeRequired)
+                {
+                    this.Invoke(new MethodInvoker(delegate
+                    {
+
+                        for (int i = 0; i < toAvoid; i++)
+                        {
+                            picJet.Location = new Point(picJet.Location.X, picJet.Location.Y + 1);
+                            
+                        }
+
+                        
+
+                    }));
+
+
+                }
+               
+                
+            }
+           
+            
+
+        }
 
 
 
