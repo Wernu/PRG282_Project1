@@ -200,12 +200,12 @@ namespace Project_PRG282
         {
             Rectangle recJet = new Rectangle(picJet.Location.X, picJet.Location.Y, picJet.Width, picJet.Height);
             Rectangle recEBase = new Rectangle(pnlEnemyBase.Location.X, pnlEnemyBase.Location.Y, pnlEnemyBase.Width, pnlEnemyBase.Height);
-          
+
             bool isCollision = recJet.IntersectsWith(recEBase);
 
             if (height < 31000)
             {
-                height = height + 1000;
+                height += 1000;
                 lblHeight.Text = height.ToString() + " feet";
             }
 
@@ -341,14 +341,14 @@ namespace Project_PRG282
         public void DodgeObject()
         {
             Rectangle recJet = new Rectangle(picJet.Location.X, picJet.Location.Y, picJet.Width * 2, picJet.Height);
-            Rectangle recTitan = new Rectangle(pnlTitan.Location.X, pnlTitan.Location.Y, pnlTitan.Width, pnlTitan.Height * 2);
-            Rectangle recAnza = new Rectangle(pnlAnza.Location.X, pnlAnza.Location.Y, pnlAnza.Width, pnlAnza.Height * 2);
-            Rectangle recFlak = new Rectangle(pnlFlakpanzer.Location.X, pnlFlakpanzer.Location.Y, pnlFlakpanzer.Width, pnlFlakpanzer.Height * 2);
-            Rectangle recIronDome = new Rectangle(pnlIronDome.Location.X, pnlIronDome.Location.Y, pnlIronDome.Width, pnlIronDome.Height * 2);
-            Rectangle recMachbet = new Rectangle(pnlmachbet.Location.X, pnlmachbet.Location.Y, pnlmachbet.Width, pnlmachbet.Height * 2);
-            Rectangle recPatriot = new Rectangle(pnlPatriot.Location.X, pnlPatriot.Location.Y, pnlPatriot.Width, pnlPatriot.Height * 2);
-            Rectangle recSpyder = new Rectangle(pnlSpyder.Location.X, pnlSpyder.Location.Y, pnlSpyder.Width, pnlSpyder.Height * 2);
-            Rectangle recThel = new Rectangle(pnlThel.Location.X, pnlThel.Location.Y, pnlThel.Width, pnlThel.Height);
+            Rectangle recTitan = new Rectangle(pnlTitan.Location.X, pnlTitan.Location.Y, pnlTitan.Width, pnlTitan.Height * 2); //Height increases
+            Rectangle recAnza = new Rectangle(pnlAnza.Location.X, pnlAnza.Location.Y, pnlAnza.Width, pnlAnza.Height * 2); //Height Increase
+            Rectangle recFlak = new Rectangle(pnlFlakpanzer.Location.X, pnlFlakpanzer.Location.Y, pnlFlakpanzer.Width, pnlFlakpanzer.Height * 2); //Dodges
+            Rectangle recIronDome = new Rectangle(pnlIronDome.Location.X, pnlIronDome.Location.Y, pnlIronDome.Width, pnlIronDome.Height * 2); //Dodges
+            Rectangle recMachbet = new Rectangle(pnlmachbet.Location.X, pnlmachbet.Location.Y, pnlmachbet.Width, pnlmachbet.Height * 2); //Dodges
+            Rectangle recPatriot = new Rectangle(pnlPatriot.Location.X, pnlPatriot.Location.Y, pnlPatriot.Width, pnlPatriot.Height * 2); //Dodges
+            Rectangle recSpyder = new Rectangle(pnlSpyder.Location.X, pnlSpyder.Location.Y, pnlSpyder.Width, pnlSpyder.Height * 2); //Dodges
+            Rectangle recThel = new Rectangle(pnlThel.Location.X, pnlThel.Location.Y, pnlThel.Width, pnlThel.Height); //Dodges
 
 
             int toAvoid = recTitan.Width;
@@ -369,14 +369,8 @@ namespace Project_PRG282
                 {
                     this.Invoke(new MethodInvoker(delegate
                     {
-                        for (int i = 0; i < toAvoid; i++)
-                        {
-                            picJet.Location = new Point(picJet.Location.X, picJet.Location.Y + 1);
-
-                        }
-
-
-
+                        height = height + 100;
+                        lblHeight.Text = height.ToString() + " feet";
                     }));
 
 
@@ -393,15 +387,8 @@ namespace Project_PRG282
                 {
                     this.Invoke(new MethodInvoker(delegate
                     {
-
-                        for (int i = 0; i < toAvoid; i++)
-                        {
-                            picJet.Location = new Point(picJet.Location.X, picJet.Location.Y + 1);
-
-                        }
-
-
-
+                        height = height + 100;
+                        lblHeight.Text = height.ToString() + " feet";
                     }));
 
 
