@@ -187,28 +187,18 @@ namespace Project_PRG282
             }
         }
         //Launches jet from HQ to enemy base
+        bool minHeightReached;
         public void MoveJet(object sender, EventArgs e)
         {
             Rectangle recJet = new Rectangle(picJet.Location.X, picJet.Location.Y, picJet.Width, picJet.Height);
             Rectangle recEBase = new Rectangle(pnlEnemyBase.Location.X, pnlEnemyBase.Location.Y, pnlEnemyBase.Width, pnlEnemyBase.Height);
-            Rectangle recTakeOff = new Rectangle(pnlTakeOff.Location.X, pnlTakeOff.Location.Y, pnlTakeOff.Width, pnlTakeOff.Height);
           
-
-
-            bool isTakeOff = recJet.IntersectsWith(recTakeOff);
             bool isCollision = recJet.IntersectsWith(recEBase);
 
-
-
-            if (isTakeOff)
+            if (height < 31000)
             {
-                while (picJet.Location.X != pbObstacleZone.Location.X)
-                {
-                    height = height + 1;
-                    lblHeight.Text = height.ToString();
-
-                }
-
+                height = height + 1000;
+                lblHeight.Text = height.ToString() + " feet";
             }
 
 
