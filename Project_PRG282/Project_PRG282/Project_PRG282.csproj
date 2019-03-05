@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AGauge, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AGauge.2.0.1\lib\NET451\AGauge.dll</HintPath>
+    </Reference>
     <Reference Include="Control.Draggable, Version=1.0.5049.269, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Control.Draggable.1.0.5049.269\lib\net35-Client\Control.Draggable.dll</HintPath>
     </Reference>

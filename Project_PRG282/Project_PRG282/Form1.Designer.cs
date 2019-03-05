@@ -45,6 +45,8 @@
             this.pnlEnemyBase = new System.Windows.Forms.Panel();
             this.timeMoveBack = new System.Windows.Forms.Timer(this.components);
             this.pnlReturnBase = new System.Windows.Forms.Panel();
+            this.lblHeight = new System.Windows.Forms.Label();
+            this.pnlTakeOff = new System.Windows.Forms.Panel();
             this.timeObjectMove = new System.Windows.Forms.Timer(this.components);
             this.pnlmachbet = new System.Windows.Forms.Panel();
             this.pnlSpyder = new System.Windows.Forms.Panel();
@@ -55,8 +57,7 @@
             this.pnlFlakpanzer = new System.Windows.Forms.Panel();
             this.pnlHQBorder = new System.Windows.Forms.Panel();
             this.timeJetMoveUp = new System.Windows.Forms.Timer(this.components);
-            this.pnlTakeOff = new System.Windows.Forms.Panel();
-            this.lblHeight = new System.Windows.Forms.Label();
+            this.FuelGauge = new System.Windows.Forms.AGauge();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbObstacleZone)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picJet)).BeginInit();
@@ -73,8 +74,8 @@
             this.exitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(886, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1181, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -84,40 +85,40 @@
             this.addObstaclesToolStripMenuItem,
             this.removeAllObstaclesToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
             this.menuToolStripMenuItem.Text = "Menu";
             // 
             // addObstaclesToolStripMenuItem
             // 
             this.addObstaclesToolStripMenuItem.Name = "addObstaclesToolStripMenuItem";
-            this.addObstaclesToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.addObstaclesToolStripMenuItem.Size = new System.Drawing.Size(223, 26);
             this.addObstaclesToolStripMenuItem.Text = "Open Obstacle Menu";
             this.addObstaclesToolStripMenuItem.Click += new System.EventHandler(this.addObstaclesToolStripMenuItem_Click);
             // 
             // removeAllObstaclesToolStripMenuItem
             // 
             this.removeAllObstaclesToolStripMenuItem.Name = "removeAllObstaclesToolStripMenuItem";
-            this.removeAllObstaclesToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.removeAllObstaclesToolStripMenuItem.Size = new System.Drawing.Size(223, 26);
             this.removeAllObstaclesToolStripMenuItem.Text = "Close Obstacle Menu";
             this.removeAllObstaclesToolStripMenuItem.Click += new System.EventHandler(this.removeAllObstaclesToolStripMenuItem_Click);
             // 
             // startToolStripMenuItem
             // 
             this.startToolStripMenuItem.Name = "startToolStripMenuItem";
-            this.startToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.startToolStripMenuItem.Size = new System.Drawing.Size(52, 24);
             this.startToolStripMenuItem.Text = "Start";
             this.startToolStripMenuItem.Click += new System.EventHandler(this.startToolStripMenuItem_Click);
             // 
             // stopToolStripMenuItem
             // 
             this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
-            this.stopToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.stopToolStripMenuItem.Size = new System.Drawing.Size(52, 24);
             this.stopToolStripMenuItem.Text = "Stop";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(45, 24);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -125,30 +126,30 @@
             // 
             this.pnlAirStripStart.BackColor = System.Drawing.Color.Transparent;
             this.pnlAirStripStart.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlAirStripStart.Location = new System.Drawing.Point(69, 213);
-            this.pnlAirStripStart.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlAirStripStart.Location = new System.Drawing.Point(92, 262);
+            this.pnlAirStripStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlAirStripStart.Name = "pnlAirStripStart";
-            this.pnlAirStripStart.Size = new System.Drawing.Size(18, 19);
+            this.pnlAirStripStart.Size = new System.Drawing.Size(23, 22);
             this.pnlAirStripStart.TabIndex = 2;
             // 
             // pnlTitan
             // 
             this.pnlTitan.BackColor = System.Drawing.Color.Transparent;
             this.pnlTitan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlTitan.Location = new System.Drawing.Point(28, 47);
-            this.pnlTitan.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlTitan.Location = new System.Drawing.Point(37, 58);
+            this.pnlTitan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlTitan.Name = "pnlTitan";
-            this.pnlTitan.Size = new System.Drawing.Size(14, 14);
+            this.pnlTitan.Size = new System.Drawing.Size(17, 16);
             this.pnlTitan.TabIndex = 4;
             // 
             // pbObstacleZone
             // 
             this.pbObstacleZone.BackColor = System.Drawing.Color.Transparent;
             this.pbObstacleZone.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pbObstacleZone.Location = new System.Drawing.Point(381, 25);
-            this.pbObstacleZone.Margin = new System.Windows.Forms.Padding(2);
+            this.pbObstacleZone.Location = new System.Drawing.Point(508, 31);
+            this.pbObstacleZone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbObstacleZone.Name = "pbObstacleZone";
-            this.pbObstacleZone.Size = new System.Drawing.Size(292, 424);
+            this.pbObstacleZone.Size = new System.Drawing.Size(388, 521);
             this.pbObstacleZone.TabIndex = 0;
             this.pbObstacleZone.TabStop = false;
             // 
@@ -158,9 +159,10 @@
             this.picJet.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picJet.BackgroundImage")));
             this.picJet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picJet.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.picJet.Location = new System.Drawing.Point(133, 106);
+            this.picJet.Location = new System.Drawing.Point(177, 130);
+            this.picJet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picJet.Name = "picJet";
-            this.picJet.Size = new System.Drawing.Size(34, 34);
+            this.picJet.Size = new System.Drawing.Size(44, 41);
             this.picJet.TabIndex = 8;
             this.picJet.TabStop = false;
             // 
@@ -168,129 +170,179 @@
             // 
             this.pnlEnemyBase.BackColor = System.Drawing.Color.Transparent;
             this.pnlEnemyBase.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlEnemyBase.Location = new System.Drawing.Point(758, 160);
+            this.pnlEnemyBase.Location = new System.Drawing.Point(1011, 197);
+            this.pnlEnemyBase.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlEnemyBase.Name = "pnlEnemyBase";
-            this.pnlEnemyBase.Size = new System.Drawing.Size(139, 244);
+            this.pnlEnemyBase.Size = new System.Drawing.Size(184, 299);
             this.pnlEnemyBase.TabIndex = 9;
             // 
             // pnlReturnBase
             // 
             this.pnlReturnBase.BackColor = System.Drawing.Color.Transparent;
             this.pnlReturnBase.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlReturnBase.Controls.Add(this.lblHeight);
+            this.pnlReturnBase.Controls.Add(this.FuelGauge);
             this.pnlReturnBase.Controls.Add(this.pnlTakeOff);
-            this.pnlReturnBase.Location = new System.Drawing.Point(5, 213);
+            this.pnlReturnBase.Location = new System.Drawing.Point(7, 262);
+            this.pnlReturnBase.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlReturnBase.Name = "pnlReturnBase";
-            this.pnlReturnBase.Size = new System.Drawing.Size(232, 236);
+            this.pnlReturnBase.Size = new System.Drawing.Size(308, 290);
             this.pnlReturnBase.TabIndex = 10;
+            // 
+            // lblHeight
+            // 
+            this.lblHeight.AutoSize = true;
+            this.lblHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeight.Location = new System.Drawing.Point(922, 471);
+            this.lblHeight.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHeight.Name = "lblHeight";
+            this.lblHeight.Size = new System.Drawing.Size(81, 25);
+            this.lblHeight.TabIndex = 4;
+            this.lblHeight.Text = "Height:";
+            // 
+            // pnlTakeOff
+            // 
+            this.pnlTakeOff.BackColor = System.Drawing.Color.Transparent;
+            this.pnlTakeOff.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlTakeOff.Location = new System.Drawing.Point(256, 2);
+            this.pnlTakeOff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlTakeOff.Name = "pnlTakeOff";
+            this.pnlTakeOff.Size = new System.Drawing.Size(29, 26);
+            this.pnlTakeOff.TabIndex = 3;
             // 
             // pnlmachbet
             // 
             this.pnlmachbet.BackColor = System.Drawing.Color.Transparent;
             this.pnlmachbet.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlmachbet.Location = new System.Drawing.Point(55, 47);
-            this.pnlmachbet.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlmachbet.Location = new System.Drawing.Point(73, 58);
+            this.pnlmachbet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlmachbet.Name = "pnlmachbet";
-            this.pnlmachbet.Size = new System.Drawing.Size(14, 14);
+            this.pnlmachbet.Size = new System.Drawing.Size(17, 16);
             this.pnlmachbet.TabIndex = 5;
             // 
             // pnlSpyder
             // 
             this.pnlSpyder.BackColor = System.Drawing.Color.Transparent;
             this.pnlSpyder.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlSpyder.Location = new System.Drawing.Point(81, 47);
-            this.pnlSpyder.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlSpyder.Location = new System.Drawing.Point(108, 58);
+            this.pnlSpyder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlSpyder.Name = "pnlSpyder";
-            this.pnlSpyder.Size = new System.Drawing.Size(14, 14);
+            this.pnlSpyder.Size = new System.Drawing.Size(17, 16);
             this.pnlSpyder.TabIndex = 6;
             // 
             // pnlPatriot
             // 
             this.pnlPatriot.BackColor = System.Drawing.Color.Transparent;
             this.pnlPatriot.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlPatriot.Location = new System.Drawing.Point(108, 47);
-            this.pnlPatriot.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlPatriot.Location = new System.Drawing.Point(144, 58);
+            this.pnlPatriot.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlPatriot.Name = "pnlPatriot";
-            this.pnlPatriot.Size = new System.Drawing.Size(14, 14);
+            this.pnlPatriot.Size = new System.Drawing.Size(17, 16);
             this.pnlPatriot.TabIndex = 7;
             // 
             // pnlIronDome
             // 
             this.pnlIronDome.BackColor = System.Drawing.Color.Transparent;
             this.pnlIronDome.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlIronDome.Location = new System.Drawing.Point(28, 72);
-            this.pnlIronDome.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlIronDome.Location = new System.Drawing.Point(37, 89);
+            this.pnlIronDome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlIronDome.Name = "pnlIronDome";
-            this.pnlIronDome.Size = new System.Drawing.Size(14, 14);
+            this.pnlIronDome.Size = new System.Drawing.Size(17, 16);
             this.pnlIronDome.TabIndex = 8;
             // 
             // pnlThel
             // 
             this.pnlThel.BackColor = System.Drawing.Color.Transparent;
             this.pnlThel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlThel.Location = new System.Drawing.Point(55, 72);
-            this.pnlThel.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlThel.Location = new System.Drawing.Point(73, 89);
+            this.pnlThel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlThel.Name = "pnlThel";
-            this.pnlThel.Size = new System.Drawing.Size(14, 14);
+            this.pnlThel.Size = new System.Drawing.Size(17, 16);
             this.pnlThel.TabIndex = 9;
             // 
             // pnlAnza
             // 
             this.pnlAnza.BackColor = System.Drawing.Color.Transparent;
             this.pnlAnza.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlAnza.Location = new System.Drawing.Point(81, 72);
-            this.pnlAnza.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlAnza.Location = new System.Drawing.Point(108, 89);
+            this.pnlAnza.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlAnza.Name = "pnlAnza";
-            this.pnlAnza.Size = new System.Drawing.Size(14, 14);
+            this.pnlAnza.Size = new System.Drawing.Size(17, 16);
             this.pnlAnza.TabIndex = 10;
             // 
             // pnlFlakpanzer
             // 
             this.pnlFlakpanzer.BackColor = System.Drawing.Color.Transparent;
             this.pnlFlakpanzer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlFlakpanzer.Location = new System.Drawing.Point(108, 72);
-            this.pnlFlakpanzer.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlFlakpanzer.Location = new System.Drawing.Point(144, 89);
+            this.pnlFlakpanzer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlFlakpanzer.Name = "pnlFlakpanzer";
-            this.pnlFlakpanzer.Size = new System.Drawing.Size(14, 14);
+            this.pnlFlakpanzer.Size = new System.Drawing.Size(17, 16);
             this.pnlFlakpanzer.TabIndex = 11;
             // 
             // pnlHQBorder
             // 
             this.pnlHQBorder.BackColor = System.Drawing.Color.Transparent;
             this.pnlHQBorder.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlHQBorder.Location = new System.Drawing.Point(227, 22);
+            this.pnlHQBorder.Location = new System.Drawing.Point(303, 27);
+            this.pnlHQBorder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlHQBorder.Name = "pnlHQBorder";
-            this.pnlHQBorder.Size = new System.Drawing.Size(10, 427);
+            this.pnlHQBorder.Size = new System.Drawing.Size(12, 525);
             this.pnlHQBorder.TabIndex = 12;
             // 
-            // pnlTakeOff
+            // FuelGauge
             // 
-            this.pnlTakeOff.BackColor = System.Drawing.Color.Transparent;
-            this.pnlTakeOff.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlTakeOff.Location = new System.Drawing.Point(192, 2);
-            this.pnlTakeOff.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlTakeOff.Name = "pnlTakeOff";
-            this.pnlTakeOff.Size = new System.Drawing.Size(23, 22);
-            this.pnlTakeOff.TabIndex = 3;
-            // 
-            // lblHeight
-            // 
-            this.lblHeight.AutoSize = true;
-            this.lblHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeight.Location = new System.Drawing.Point(58, 142);
-            this.lblHeight.Name = "lblHeight";
-            this.lblHeight.Size = new System.Drawing.Size(67, 20);
-            this.lblHeight.TabIndex = 4;
-            this.lblHeight.Text = "Height:";
+            this.FuelGauge.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("FuelGauge.BackgroundImage")));
+            this.FuelGauge.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.FuelGauge.BaseArcColor = System.Drawing.Color.Gray;
+            this.FuelGauge.BaseArcRadius = 50;
+            this.FuelGauge.BaseArcStart = 135;
+            this.FuelGauge.BaseArcSweep = 270;
+            this.FuelGauge.BaseArcWidth = 2;
+            this.FuelGauge.Center = new System.Drawing.Point(100, 100);
+            this.FuelGauge.Location = new System.Drawing.Point(-17, 77);
+            this.FuelGauge.MaxValue = 100F;
+            this.FuelGauge.MinValue = 0F;
+            this.FuelGauge.Name = "FuelGauge";
+            this.FuelGauge.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray;
+            this.FuelGauge.NeedleColor2 = System.Drawing.Color.DimGray;
+            this.FuelGauge.NeedleRadius = 50;
+            this.FuelGauge.NeedleType = System.Windows.Forms.NeedleType.Advance;
+            this.FuelGauge.NeedleWidth = 2;
+            this.FuelGauge.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.FuelGauge.ScaleLinesInterColor = System.Drawing.Color.Black;
+            this.FuelGauge.ScaleLinesInterInnerRadius = 60;
+            this.FuelGauge.ScaleLinesInterOuterRadius = 50;
+            this.FuelGauge.ScaleLinesInterWidth = 1;
+            this.FuelGauge.ScaleLinesMajorColor = System.Drawing.Color.Black;
+            this.FuelGauge.ScaleLinesMajorInnerRadius = 50;
+            this.FuelGauge.ScaleLinesMajorOuterRadius = 60;
+            this.FuelGauge.ScaleLinesMajorStepValue = 10F;
+            this.FuelGauge.ScaleLinesMajorWidth = 2;
+            this.FuelGauge.ScaleLinesMinorColor = System.Drawing.Color.Gray;
+            this.FuelGauge.ScaleLinesMinorInnerRadius = 60;
+            this.FuelGauge.ScaleLinesMinorOuterRadius = 50;
+            this.FuelGauge.ScaleLinesMinorTicks = 9;
+            this.FuelGauge.ScaleLinesMinorWidth = 1;
+            this.FuelGauge.ScaleNumbersColor = System.Drawing.Color.Black;
+            this.FuelGauge.ScaleNumbersFormat = null;
+            this.FuelGauge.ScaleNumbersRadius = 70;
+            this.FuelGauge.ScaleNumbersRotation = 0;
+            this.FuelGauge.ScaleNumbersStartScaleLine = 0;
+            this.FuelGauge.ScaleNumbersStepScaleLines = 1;
+            this.FuelGauge.Size = new System.Drawing.Size(220, 211);
+            this.FuelGauge.TabIndex = 5;
+            this.FuelGauge.Text = "aGauge1";
+            this.FuelGauge.Value = 0F;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(886, 449);
+            this.ClientSize = new System.Drawing.Size(1181, 553);
             this.Controls.Add(this.pnlFlakpanzer);
+            this.Controls.Add(this.lblHeight);
             this.Controls.Add(this.pnlAnza);
             this.Controls.Add(this.pnlThel);
             this.Controls.Add(this.pnlIronDome);
@@ -308,7 +360,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -319,7 +371,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbObstacleZone)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picJet)).EndInit();
             this.pnlReturnBase.ResumeLayout(false);
-            this.pnlReturnBase.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -354,6 +405,7 @@
         private System.Windows.Forms.Timer timeJetMoveUp;
         private System.Windows.Forms.Panel pnlTakeOff;
         private System.Windows.Forms.Label lblHeight;
+        private System.Windows.Forms.AGauge FuelGauge;
     }
 }
 

@@ -211,6 +211,7 @@ namespace Project_PRG282
 
 
 
+
             if (isCollision)
             {
                 timeMove.Stop();
