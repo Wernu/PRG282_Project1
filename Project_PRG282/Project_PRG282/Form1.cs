@@ -19,7 +19,7 @@ namespace Project_PRG282
         {
             InitializeComponent();
         }
-       
+
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
@@ -77,6 +77,9 @@ namespace Project_PRG282
             Image imgJet = picJet.BackgroundImage;
             imgJet.RotateFlip(RotateFlipType.Rotate90FlipNone);
             picJet.BackgroundImage = imgJet;
+
+            picJetAttack.Hide();
+
         }
 
         //Displaying Obstacle Menu
@@ -243,7 +246,6 @@ namespace Project_PRG282
 
         }
 
-
         public void ReturnBase()
         {
             Image imgJet2 = picJet.BackgroundImage;
@@ -321,6 +323,8 @@ namespace Project_PRG282
             else
             {
                 picJet.Location = new Point(picJet.Location.X, picJet.Location.Y - 1);
+                HeightDecrease();
+                SpeedDecrease();
             }
 
         }
@@ -339,10 +343,16 @@ namespace Project_PRG282
                     onlyOnce = false;
                 }
 
+                speed = 0;
+                lblSpeed.Text = speed.ToString() + " km/hr";
+                height = 0;
+                lblHeight.Text = height.ToString() + " feet";
+
                 picJet.Location = new Point(picJet.Location.X - 1, picJet.Location.Y);
             }
             else
             {
+
                 timeJetMoveUp.Stop();
             }
         }
@@ -446,6 +456,8 @@ namespace Project_PRG282
 
                         }
 
+                        SpeedIncrease();
+
                     }));
 
 
@@ -466,7 +478,7 @@ namespace Project_PRG282
                             picJet.Location = new Point(picJet.Location.X, picJet.Location.Y + 1);
 
                         }
-
+                        SpeedIncrease();
                     }));
 
 
@@ -487,7 +499,7 @@ namespace Project_PRG282
                             picJet.Location = new Point(picJet.Location.X, picJet.Location.Y + 1);
 
                         }
-
+                        SpeedIncrease();
                     }));
 
 
@@ -507,7 +519,7 @@ namespace Project_PRG282
                             picJet.Location = new Point(picJet.Location.X, picJet.Location.Y + 1);
 
                         }
-
+                        SpeedIncrease();
                     }));
 
 
@@ -528,7 +540,7 @@ namespace Project_PRG282
                             picJet.Location = new Point(picJet.Location.X, picJet.Location.Y + 1);
 
                         }
-
+                        SpeedIncrease();
                     }));
 
                 }
@@ -540,18 +552,15 @@ namespace Project_PRG282
         public void HeightIncrease()
         {
             height += 5;
-            lblHeight.Text = height.ToString() + " feet";           
+            lblHeight.Text = height.ToString() + " feet";
         }
-        bool once = true;
+
         public void SpeedIncrease()
         {
-            if (once == true)
-            {
-                speed += 50;
-                lblSpeed.Text = speed.ToString() + " km/hr";
-                once = false;
-            }
-           
+
+            speed += 50;
+            lblSpeed.Text = speed.ToString() + " km/hr";
+
         }
         //Setting enemy base location names
         public void randomTerritories(int number)
@@ -581,5 +590,24 @@ namespace Project_PRG282
                 lbl5.Text = "Head Office";
             }
         }
+
+        public void HeightDecrease()
+        {
+            if (height > 0)
+            {
+                height -= 200;
+                lblHeight.Text = height.ToString() + " feet";
+            }
+        }
+
+        public void SpeedDecrease()
+        {
+            if (speed > 0)
+            {
+                speed -= 10;
+                lblSpeed.Text = speed.ToString() + " km/hr";
+            }
+        }
+
     }
 }
