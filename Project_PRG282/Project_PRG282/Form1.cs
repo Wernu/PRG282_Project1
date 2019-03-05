@@ -24,7 +24,7 @@ namespace Project_PRG282
             Environment.Exit(0);
         }
 
-
+        int height;
         private void Form1_Load(object sender, EventArgs e)
         {
             //Creating obstacle menu
@@ -59,6 +59,7 @@ namespace Project_PRG282
             pnlSpyder.BorderStyle = BorderStyle.None;
             pnlThel.BorderStyle = BorderStyle.None;
             pnlHQBorder.BorderStyle = BorderStyle.None;
+            pnlTakeOff.BorderStyle = BorderStyle.None;
 
             //Moving the jet to the start of the airstrip
 
@@ -152,7 +153,7 @@ namespace Project_PRG282
             ObjectsMovement(pnlSpyder, r.Next(X1, X2), r.Next(Y1, Y2));
             ObjectsMovement(pnlThel, r.Next(X1, X2), r.Next(Y1, Y2));
         }
-
+        //Moves the objects inside the area
         public void ObjectsMovement(Panel obstacle, int X, int Y)
         {
 
@@ -190,20 +191,43 @@ namespace Project_PRG282
         {
             Rectangle recJet = new Rectangle(picJet.Location.X, picJet.Location.Y, picJet.Width, picJet.Height);
             Rectangle recEBase = new Rectangle(pnlEnemyBase.Location.X, pnlEnemyBase.Location.Y, pnlEnemyBase.Width, pnlEnemyBase.Height);
+            Rectangle recTakeOff = new Rectangle(pnlTakeOff.Location.X, pnlTakeOff.Location.Y, pnlTakeOff.Width, pnlTakeOff.Height);
+          
 
+
+            bool isTakeOff = recJet.IntersectsWith(recTakeOff);
             bool isCollision = recJet.IntersectsWith(recEBase);
+
+
+
+            if (isTakeOff)
+            {
+                while (picJet.Location.X != pbObstacleZone.Location.X)
+                {
+                    height = height + 1;
+                    lblHeight.Text = height.ToString();
+
+                }
+
+            }
+
+
 
             if (isCollision)
             {
                 timeMove.Stop();
                 ReturnBase();
             }
+
             else
             {
                 picJet.Location = new Point(picJet.Location.X + 5, picJet.Location.Y);
                 Thread thDodge = new Thread(DodgeObject);
                 thDodge.Start();
             }
+
+
+
 
         }
 
@@ -280,7 +304,7 @@ namespace Project_PRG282
 
             if (picJet.Location.Y == pnlAirStripStart.Location.Y)
             {
-                Straight();               
+                Straight();
             }
             else
             {
@@ -291,7 +315,7 @@ namespace Project_PRG282
         bool onlyOnce = true;
         public void Straight()
         {
-            
+
             if (picJet.Location.X > pnlAirStripStart.Location.X)
             {
 
@@ -302,7 +326,7 @@ namespace Project_PRG282
                     picJet.BackgroundImage = imgJet2;
                     onlyOnce = false;
                 }
-                
+
                 picJet.Location = new Point(picJet.Location.X - 1, picJet.Location.Y);
             }
             else
