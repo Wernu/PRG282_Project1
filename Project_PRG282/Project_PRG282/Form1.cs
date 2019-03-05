@@ -62,6 +62,8 @@ namespace Project_PRG282
             pnlHQBorder.BorderStyle = BorderStyle.None;
             pnlTakeOff.BorderStyle = BorderStyle.None;
 
+            //Fuel Start
+            FuelGauge.Value = 100;
             //Moving the jet to the start of the airstrip
 
             pnlAirStripStart.Hide();
@@ -210,9 +212,6 @@ namespace Project_PRG282
                 lblHeight.Text = height.ToString() + " feet";
             }
 
-
-
-
             if (isCollision)
             {
                 timeMove.Stop();
@@ -338,8 +337,8 @@ namespace Project_PRG282
         public void EndTrip()
         {
             //Show status of damage, fuel etc..
-        }
 
+        }
         public void DodgeObject()
         {
             Rectangle recJet = new Rectangle(picJet.Location.X, picJet.Location.Y, picJet.Width * 2, picJet.Height);
@@ -366,13 +365,14 @@ namespace Project_PRG282
 
             if (isCollision)
             {
-
                 if (picJet.InvokeRequired)
                 {
+
                     this.Invoke(new MethodInvoker(delegate
                     {
                         height = height + 100;
                         lblHeight.Text = height.ToString() + " feet";
+
                     }));
 
 
@@ -384,7 +384,6 @@ namespace Project_PRG282
 
             if (isCollision2)
             {
-
                 if (picJet.InvokeRequired)
                 {
                     this.Invoke(new MethodInvoker(delegate
@@ -413,8 +412,6 @@ namespace Project_PRG282
 
                         }
 
-
-
                     }));
 
 
@@ -430,14 +427,11 @@ namespace Project_PRG282
                 {
                     this.Invoke(new MethodInvoker(delegate
                     {
-
                         for (int i = 0; i < toAvoid; i++)
                         {
                             picJet.Location = new Point(picJet.Location.X, picJet.Location.Y + 1);
 
                         }
-
-
 
                     }));
 
@@ -454,14 +448,11 @@ namespace Project_PRG282
                 {
                     this.Invoke(new MethodInvoker(delegate
                     {
-
                         for (int i = 0; i < toAvoid; i++)
                         {
                             picJet.Location = new Point(picJet.Location.X, picJet.Location.Y + 1);
 
                         }
-
-
 
                     }));
 
@@ -478,14 +469,11 @@ namespace Project_PRG282
                 {
                     this.Invoke(new MethodInvoker(delegate
                     {
-
                         for (int i = 0; i < toAvoid; i++)
                         {
                             picJet.Location = new Point(picJet.Location.X, picJet.Location.Y + 1);
 
                         }
-
-
 
                     }));
 
@@ -497,19 +485,15 @@ namespace Project_PRG282
 
             if (isCollision7)
             {
-
                 if (picJet.InvokeRequired)
                 {
                     this.Invoke(new MethodInvoker(delegate
                     {
-
                         for (int i = 0; i < toAvoid; i++)
                         {
                             picJet.Location = new Point(picJet.Location.X, picJet.Location.Y + 1);
 
                         }
-
-
 
                     }));
 
@@ -521,7 +505,6 @@ namespace Project_PRG282
 
             if (isCollision8)
             {
-
                 if (picJet.InvokeRequired)
                 {
                     this.Invoke(new MethodInvoker(delegate
@@ -532,8 +515,6 @@ namespace Project_PRG282
                             picJet.Location = new Point(picJet.Location.X, picJet.Location.Y + 1);
 
                         }
-
-
 
                     }));
 
