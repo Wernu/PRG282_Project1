@@ -84,6 +84,14 @@ namespace Project_PRG282
             pnlPatriot.Enabled = true;
             pnlSpyder.Enabled = true;
             pnlThel.Enabled = true;
+            pnlTitan.Show();
+            pnlAnza.Show();
+            pnlFlakpanzer.Show();
+            pnlIronDome.Show();
+            pnlmachbet.Show();
+            pnlPatriot.Show();
+            pnlSpyder.Show();
+            pnlThel.Show();
             pnlTitan.BackColor = Color.Black;
             pnlAnza.BackColor = Color.Black;
             pnlFlakpanzer.BackColor = Color.Black;
@@ -187,7 +195,7 @@ namespace Project_PRG282
             }
         }
         //Launches jet from HQ to enemy base
-        bool minHeightReached;
+
         public void MoveJet(object sender, EventArgs e)
         {
             Rectangle recJet = new Rectangle(picJet.Location.X, picJet.Location.Y, picJet.Width, picJet.Height);
