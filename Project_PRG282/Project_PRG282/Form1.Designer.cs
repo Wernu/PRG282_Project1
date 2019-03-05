@@ -58,6 +58,8 @@
             this.pnlFlakpanzer = new System.Windows.Forms.Panel();
             this.pnlHQBorder = new System.Windows.Forms.Panel();
             this.timeJetMoveUp = new System.Windows.Forms.Timer(this.components);
+            this.lblSpeed = new System.Windows.Forms.Label();
+            this.timeDecreaseHeight = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbObstacleZone)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picJet)).BeginInit();
@@ -245,7 +247,7 @@
             // 
             this.lblHeight.AutoSize = true;
             this.lblHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeight.Location = new System.Drawing.Point(692, 383);
+            this.lblHeight.Location = new System.Drawing.Point(692, 384);
             this.lblHeight.Name = "lblHeight";
             this.lblHeight.Size = new System.Drawing.Size(67, 20);
             this.lblHeight.TabIndex = 4;
@@ -330,6 +332,16 @@
             this.pnlHQBorder.Size = new System.Drawing.Size(10, 427);
             this.pnlHQBorder.TabIndex = 12;
             // 
+            // lblSpeed
+            // 
+            this.lblSpeed.AutoSize = true;
+            this.lblSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSpeed.Location = new System.Drawing.Point(692, 420);
+            this.lblSpeed.Name = "lblSpeed";
+            this.lblSpeed.Size = new System.Drawing.Size(66, 20);
+            this.lblSpeed.TabIndex = 13;
+            this.lblSpeed.Text = "Speed:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -337,6 +349,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(886, 449);
+            this.Controls.Add(this.lblSpeed);
             this.Controls.Add(this.pnlFlakpanzer);
             this.Controls.Add(this.lblHeight);
             this.Controls.Add(this.pnlAnza);
@@ -402,6 +415,8 @@
         private System.Windows.Forms.Panel pnlTakeOff;
         private System.Windows.Forms.Label lblHeight;
         private System.Windows.Forms.AGauge FuelGauge;
+        private System.Windows.Forms.Label lblSpeed;
+        private System.Windows.Forms.Timer timeDecreaseHeight;
     }
 }
 

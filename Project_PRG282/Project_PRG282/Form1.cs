@@ -198,7 +198,7 @@ namespace Project_PRG282
             }
         }
         //Launches jet from HQ to enemy base
-
+        int speed;
         public void MoveJet(object sender, EventArgs e)
         {
             Rectangle recJet = new Rectangle(picJet.Location.X, picJet.Location.Y, picJet.Width, picJet.Height);
@@ -210,7 +210,15 @@ namespace Project_PRG282
             {
                 height += 1000;
                 lblHeight.Text = height.ToString() + " feet";
+
             }
+
+            if (speed < 900)
+            {
+                speed += 50;
+                lblSpeed.Text = speed.ToString() + " km/hr";
+            }
+
 
             if (isCollision)
             {
@@ -224,9 +232,6 @@ namespace Project_PRG282
                 Thread thDodge = new Thread(DodgeObject);
                 thDodge.Start();
             }
-
-
-
 
         }
 
@@ -339,6 +344,7 @@ namespace Project_PRG282
             //Show status of damage, fuel etc..
 
         }
+
         public void DodgeObject()
         {
             Rectangle recJet = new Rectangle(picJet.Location.X, picJet.Location.Y, picJet.Width * 2, picJet.Height);
@@ -363,23 +369,21 @@ namespace Project_PRG282
             bool isCollision7 = recJet.IntersectsWith(recSpyder);
             bool isCollision8 = recJet.IntersectsWith(recThel);
 
+
             if (isCollision)
             {
                 if (picJet.InvokeRequired)
                 {
-
                     this.Invoke(new MethodInvoker(delegate
                     {
-                        height = height + 100;
-                        lblHeight.Text = height.ToString() + " feet";
+                        HeightIncrease();
 
                     }));
 
-
                 }
 
-
             }
+
 
 
             if (isCollision2)
@@ -388,8 +392,7 @@ namespace Project_PRG282
                 {
                     this.Invoke(new MethodInvoker(delegate
                     {
-                        height = height + 100;
-                        lblHeight.Text = height.ToString() + " feet";
+                        HeightIncrease();
                     }));
 
 
@@ -411,6 +414,8 @@ namespace Project_PRG282
                             picJet.Location = new Point(picJet.Location.X, picJet.Location.Y + 1);
 
                         }
+
+                        SpeedIncrease();
 
                     }));
 
@@ -518,15 +523,31 @@ namespace Project_PRG282
 
                     }));
 
-
                 }
-
 
             }
 
-
-
         }
+
+        public void HeightIncrease()
+        {
+            height += 5;
+            lblHeight.Text = height.ToString() + " feet";           
+        }
+        bool once = true;
+        public void SpeedIncrease()
+        {
+            if (once == true)
+            {
+                speed += 50;
+                lblSpeed.Text = speed.ToString() + " km/hr";
+                once = false;
+            }
+           
+        }
+
+
+
 
     }
 }
