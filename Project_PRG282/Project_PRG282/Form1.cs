@@ -28,6 +28,9 @@ namespace Project_PRG282
         int height;
         private void Form1_Load(object sender, EventArgs e)
         {
+            //Randomizing enemycamp terretories
+            Random r = new Random();
+            randomTerritories(r.Next(1, 4));
             //Creating obstacle menu
             pnlTitan.Enabled = false;
             pnlAnza.Enabled = false;
@@ -222,6 +225,11 @@ namespace Project_PRG282
 
             if (isCollision)
             {
+                lbl1.Visible = true;
+                lbl2.Visible = true;
+                lbl3.Visible = true;
+                lbl4.Visible = true;
+                lbl5.Visible = true;
                 timeMove.Stop();
                 ReturnBase();
             }
@@ -545,9 +553,33 @@ namespace Project_PRG282
             }
            
         }
-
-
-
-
+        //Setting enemy base location names
+        public void randomTerritories(int number)
+        {
+            if (number == 1)
+            {
+                lbl1.Text = "Armory";
+                lbl2.Text = "Quaters";
+                lbl3.Text = "Head Office";
+                lbl4.Text = "Aid Station";
+                lbl5.Text = "Mess Hall";
+            }
+            if (number == 2)
+            {
+                lbl1.Text = "Head Office";
+                lbl2.Text = "Quaters";
+                lbl3.Text = "Mess Hall";
+                lbl4.Text = "Armory";
+                lbl5.Text = "Aid Station";
+            }
+            if (number == 3)
+            {
+                lbl1.Text = "Aid Station";
+                lbl2.Text = "Armory";
+                lbl3.Text = "Quaters";
+                lbl4.Text = "Mess Hall";
+                lbl5.Text = "Head Office";
+            }
+        }
     }
 }
