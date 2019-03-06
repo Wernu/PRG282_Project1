@@ -206,6 +206,8 @@ namespace Project_PRG282
         }
         public int AGauage_Counter = 400;
         public bool GauageStop = false;
+        public int AGauage_Counter1 = 400;
+        public bool GauageStop1 = false;
         //Launches jet from HQ to enemy base
         int speed;
         public void MoveJet(object sender, EventArgs e)
@@ -270,11 +272,13 @@ namespace Project_PRG282
             Rectangle recHQborder = new Rectangle(pnlHQBorder.Location.X, pnlHQBorder.Location.Y, pnlHQBorder.Width, pnlHQBorder.Height);
             bool isCollision_Base = recJetAttack.IntersectsWith(recHQBase);
             bool isCollision_Border = recJetAttack.IntersectsWith(recHQborder);
-           
+            AGauage_Counter1--;
+            GauageSecond_Plane();
 
             if (isCollision_Base)
             {
                 timeMoveBackAttack.Stop();
+                GauageStop1 = true;
             }
             else
             {
@@ -372,6 +376,32 @@ namespace Project_PRG282
 
                         
                         FuelGauge.Value = AGauage_Counter;
+                    }
+
+                }));
+
+
+
+
+
+            }
+            //  return (int)MessageBox.Show("{0} Fuel is left",Agauge_Counter.ToString());
+        }
+        public void GauageSecond_Plane()
+        {
+            FuelGauge.Value = 400;
+
+            if (GauageStop1 == false)
+            {
+
+                
+                this.Invoke(new MethodInvoker(delegate
+                {
+                    for (int i = 0; i < 400; i++)
+                    {
+
+                       
+                        FuelGauge.Value = AGauage_Counter1;
                     }
 
                 }));
@@ -520,7 +550,8 @@ namespace Project_PRG282
         {
             Rectangle recJetAttack = new Rectangle(picJetAttack.Location.X, picJetAttack.Location.Y, picJetAttack.Width, picJet.Height);
             Rectangle recEBase = new Rectangle(pnlEnemyBase.Location.X, pnlEnemyBase.Location.Y, pnlEnemyBase.Width, pnlEnemyBase.Height);
-
+            AGauage_Counter1--;
+            GauageSecond_Plane();
             bool isCollision = recJetAttack.IntersectsWith(recEBase);
 
             if (height < 31000)
