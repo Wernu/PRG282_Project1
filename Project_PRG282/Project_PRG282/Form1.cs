@@ -204,13 +204,16 @@ namespace Project_PRG282
                 }
             }
         }
+        public int AGauage_Counter = 400;
+        public bool GauageStop = false;
         //Launches jet from HQ to enemy base
         int speed;
         public void MoveJet(object sender, EventArgs e)
         {
             Rectangle recJet = new Rectangle(picJet.Location.X, picJet.Location.Y, picJet.Width, picJet.Height);
             Rectangle recEBase = new Rectangle(pnlEnemyBase.Location.X, pnlEnemyBase.Location.Y, pnlEnemyBase.Width, pnlEnemyBase.Height);
-
+            AGauage_Counter--;
+            Gauage();
             bool isCollision = recJet.IntersectsWith(recEBase);
 
             if (height < 31000)
@@ -267,7 +270,7 @@ namespace Project_PRG282
             Rectangle recHQborder = new Rectangle(pnlHQBorder.Location.X, pnlHQBorder.Location.Y, pnlHQBorder.Width, pnlHQBorder.Height);
             bool isCollision_Base = recJetAttack.IntersectsWith(recHQBase);
             bool isCollision_Border = recJetAttack.IntersectsWith(recHQborder);
-
+           
 
             if (isCollision_Base)
             {
@@ -296,7 +299,7 @@ namespace Project_PRG282
             Thread thDodge = new Thread(DodgeObject);
             thDodge.Start();
         }
-
+        
         public void ReturnBase()
         {
             Image imgJet2 = picJet.BackgroundImage;
@@ -320,12 +323,14 @@ namespace Project_PRG282
             Rectangle recHQborder = new Rectangle(pnlHQBorder.Location.X, pnlHQBorder.Location.Y, pnlHQBorder.Width, pnlHQBorder.Height);
             bool isCollision_Base = recJet.IntersectsWith(recHQBase);
             bool isCollision_Border = recJet.IntersectsWith(recHQborder);
-
+            AGauage_Counter--;
+            Gauage();
 
             if (isCollision_Base)
             {
-                
+               
                 timeMoveBack.Stop();
+                GauageStop = true;
             }
             else
             {
@@ -351,6 +356,32 @@ namespace Project_PRG282
             thDodge.Start();
 
 
+        }
+        public void Gauage()
+        {
+
+
+            if (GauageStop == false)
+            {
+
+
+                this.Invoke(new MethodInvoker(delegate
+                {
+                    for (int i = 0; i < 400; i++)
+                    {
+
+                        
+                        FuelGauge.Value = AGauage_Counter;
+                    }
+
+                }));
+
+
+
+
+
+            }
+            //  return (int)MessageBox.Show("{0} Fuel is left",Agauge_Counter.ToString());
         }
 
         public void RePositionUpAttack()

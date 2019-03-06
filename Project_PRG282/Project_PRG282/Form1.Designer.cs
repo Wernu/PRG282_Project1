@@ -267,47 +267,48 @@
             // 
             this.FuelGauge.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("FuelGauge.BackgroundImage")));
             this.FuelGauge.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.FuelGauge.BaseArcColor = System.Drawing.Color.Gray;
+            this.FuelGauge.BaseArcColor = System.Drawing.Color.White;
             this.FuelGauge.BaseArcRadius = 50;
             this.FuelGauge.BaseArcStart = 135;
             this.FuelGauge.BaseArcSweep = 270;
             this.FuelGauge.BaseArcWidth = 2;
             this.FuelGauge.Center = new System.Drawing.Point(100, 100);
-            this.FuelGauge.Location = new System.Drawing.Point(-13, 63);
-            this.FuelGauge.Margin = new System.Windows.Forms.Padding(2);
-            this.FuelGauge.MaxValue = 100F;
+            this.FuelGauge.Location = new System.Drawing.Point(-24, 78);
+            this.FuelGauge.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.FuelGauge.MaxValue = 400F;
             this.FuelGauge.MinValue = 0F;
             this.FuelGauge.Name = "FuelGauge";
             this.FuelGauge.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray;
-            this.FuelGauge.NeedleColor2 = System.Drawing.Color.DimGray;
+            this.FuelGauge.NeedleColor2 = System.Drawing.Color.White;
             this.FuelGauge.NeedleRadius = 50;
             this.FuelGauge.NeedleType = System.Windows.Forms.NeedleType.Advance;
             this.FuelGauge.NeedleWidth = 2;
             this.FuelGauge.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.FuelGauge.ScaleLinesInterColor = System.Drawing.Color.Black;
+            this.FuelGauge.ScaleLinesInterColor = System.Drawing.Color.White;
             this.FuelGauge.ScaleLinesInterInnerRadius = 60;
             this.FuelGauge.ScaleLinesInterOuterRadius = 50;
             this.FuelGauge.ScaleLinesInterWidth = 1;
             this.FuelGauge.ScaleLinesMajorColor = System.Drawing.Color.Black;
             this.FuelGauge.ScaleLinesMajorInnerRadius = 50;
             this.FuelGauge.ScaleLinesMajorOuterRadius = 60;
-            this.FuelGauge.ScaleLinesMajorStepValue = 10F;
+            this.FuelGauge.ScaleLinesMajorStepValue = 50F;
             this.FuelGauge.ScaleLinesMajorWidth = 2;
-            this.FuelGauge.ScaleLinesMinorColor = System.Drawing.Color.Gray;
+            this.FuelGauge.ScaleLinesMinorColor = System.Drawing.Color.White;
             this.FuelGauge.ScaleLinesMinorInnerRadius = 60;
             this.FuelGauge.ScaleLinesMinorOuterRadius = 50;
             this.FuelGauge.ScaleLinesMinorTicks = 9;
             this.FuelGauge.ScaleLinesMinorWidth = 1;
-            this.FuelGauge.ScaleNumbersColor = System.Drawing.Color.Black;
+            this.FuelGauge.ScaleNumbersColor = System.Drawing.Color.White;
             this.FuelGauge.ScaleNumbersFormat = null;
             this.FuelGauge.ScaleNumbersRadius = 70;
             this.FuelGauge.ScaleNumbersRotation = 0;
             this.FuelGauge.ScaleNumbersStartScaleLine = 0;
             this.FuelGauge.ScaleNumbersStepScaleLines = 1;
-            this.FuelGauge.Size = new System.Drawing.Size(186, 171);
+            this.FuelGauge.Size = new System.Drawing.Size(248, 210);
             this.FuelGauge.TabIndex = 5;
             this.FuelGauge.Text = "aGauge1";
-            this.FuelGauge.Value = 0F;
+            this.FuelGauge.Value = 400F;
+
             // 
             // pnlTakeOff
             // 
